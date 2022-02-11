@@ -1,0 +1,10 @@
+.register-container {
+  background-image: url("../images/backgroundRegister.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin-top: 10px;
+}
+
+.avatar-register {
+  margin-right: 100px;
+}
