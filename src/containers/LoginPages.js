@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
 import { useNavigate } from 'react-router-dom';
 
-
 const mapStateToProps = (state) => {
     return {
         token: state.users.accessTokenResponse,
