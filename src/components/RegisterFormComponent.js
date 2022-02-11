@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button, Spinner } from "react-bootstrap";
 
 import { reduxForm, Field } from "redux-form";
 import RegisterValidation from '../validate/registerValidate';
@@ -84,8 +84,11 @@ class RegisterFormComponent extends Component {
                         />
                     </Form.Group>
 
-                    <Button variant="primary" className='mt-4' type="submit" >
-                        Register
+                    <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
+                        {this.props.isLoading ?
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Register</span>
+                            </Spinner> : <span>Register</span>}
                     </Button>
 
                 </form>
