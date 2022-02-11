@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button , Row, Col , Spinner} from 'react-bootstrap'
+import { Form, Button, Row, Col, Spinner } from 'react-bootstrap'
 import avatar from '../images/avatar.svg'
 
 import { reduxForm, Field } from "redux-form";
@@ -50,7 +50,7 @@ class LoginFormComponent extends Component {
                     </Form.Group>
 
 
-                    <Form.Group className="" controlId="formBasicEmail">
+                    <Form.Group className="" controlId="formBasicPassword">
                         <Field
                             type="password"
                             name="password"
@@ -64,8 +64,13 @@ class LoginFormComponent extends Component {
                         {this.props.isLoading ?
                             <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Register</span>
-                            </Spinner> : <span>Register</span>}
+                            </Spinner> : <span>Login</span>}
                     </Button>
+
+
+                    <Form.Group className="mt-5" controlId="formBasicEmail">
+                        <a href="/forget-password">Forget Password</a>
+                    </Form.Group>
 
                 </form>
             </div>

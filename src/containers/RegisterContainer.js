@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
         createUserError: state.users.createUserError
     }
 }
-function RegisterPages(props) {
+function RegisterContainer(props) {
     const history = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -54,7 +54,6 @@ function RegisterPages(props) {
 
     return (
         <div className="register-container">
-
             <Container >
                 <h2>Join With Us</h2>
                 <div className='d-flex justify-content-end'>
@@ -72,4 +71,4 @@ function RegisterPages(props) {
     );
 }
 
-export default connect(mapStateToProps, null)(RegisterPages);
+export default connect(mapStateToProps, null)(RegisterContainer);

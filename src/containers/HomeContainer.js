@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import JumbrotonComponent from '../components/JumbrotonComponent';
 import CardPriceComponent from '../components/CardPriceComponent'
 import './Home.css'
-class HomePage extends Component {
+class HomeContainer extends Component {
 
     render() {
         return (
@@ -40,4 +40,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+export default HomeContainer;
