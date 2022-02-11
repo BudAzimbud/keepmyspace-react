@@ -1,10 +1,10 @@
 .register-container {
-  background-image: url("../images/backgroundLogin.svg");
+  background-image: url("../images/backgroundRegister.svg");
   background-repeat: no-repeat;
   background-position: left center;
   margin-top: 10px;
 }
 
-.container {
-  opacity: 100%;
+.avatar-register {
+  margin-right: 100px;
 }

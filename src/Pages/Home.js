@@ -5,7 +5,7 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div class="navbar-home">
+            <div className="navbar-home">
                 <Navbar collapseOnSelect >
                     <Container>
 

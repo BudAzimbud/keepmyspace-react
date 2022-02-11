@@ -7,7 +7,7 @@ import HomePage from './Pages/Home';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <NavbarComponent />
         <Routes>
           <Route exact path='/login' element={< LoginPages />}></Route>
