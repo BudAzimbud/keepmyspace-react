@@ -37,7 +37,7 @@ class RegisterFormComponent extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
-                    <Form.Group className=" mt-5" controlId="formBasicEmail">
+                    <Form.Group controlId="formBasicEmail">
                         <Field
                             type="email"
                             name="email"
