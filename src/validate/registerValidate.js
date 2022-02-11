@@ -23,6 +23,13 @@ const RegisterValidation = (values) => {
     }
 
 
+
+    if (!values.phoneNumber || values.phoneNumber === "") {
+        errors.phoneNumber = "no telepon harus di isi";
+    }
+
+
+
     return errors
 };
 
