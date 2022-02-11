@@ -6,6 +6,7 @@ import backgroundLogin from '../images/backgroundLogin.svg'
 import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const mapStateToProps = (state) => {
     return {
@@ -27,9 +28,31 @@ function LoginContainer(props) {
     if (props.token) {
         localStorage.setItem('token', props.token.access_token)
         history('/dashboard', { state: true })
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
 
+        Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+        })
     }
 
+    if (props.token == false) {
+        Swal.fire({
+            icon: 'error',
+            text: 'Akun anda tidak valid!',
+        })
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -45,7 +68,7 @@ function LoginContainer(props) {
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </div >
     );
 }
 

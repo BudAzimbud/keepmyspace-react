@@ -27,12 +27,21 @@ function RegisterContainer(props) {
 
 
     if (props.createUserResponse.data) {
-        Swal.fire({
+        const Toast = Swal.mixin({
+            toast: true,
             position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
             showConfirmButton: false,
-            timer: 1500
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Check Your Email'
         })
         history('/login', { state: true })
 
@@ -43,7 +52,6 @@ function RegisterContainer(props) {
             icon: 'error',
             title: 'Oops...',
             text: 'coba pake email lain',
-            footer: '<a href="">Why do I have this issue?</a>'
         })
         setTimeout(() => {
             window.location.reload();

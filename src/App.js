@@ -5,6 +5,8 @@ import RouteHome from './routes/RouteHome';
 
 function App() {
 
+  // localStorage.removeItem('token')
+
   return (
     <div className="App">
       {localStorage.getItem('token') ?
