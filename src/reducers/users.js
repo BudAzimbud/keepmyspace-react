@@ -1,8 +1,9 @@
-import { POST_CREATE_USER } from '../actions/ActionUser'
+import { POST_CREATE_USER, USER_CREATE_ACCESS_TOKEN } from '../actions/ActionUser'
 
 const initialState = {
     createUserResponse: false,
     createUserError: false,
+    accessToken: false,
     title: 'keepmyspace'
 }
 
@@ -14,6 +15,11 @@ function users(state = initialState, action) {
                 createUserResponse: action.payload,
                 createUserError: action.payload
 
+            }
+        case USER_CREATE_ACCESS_TOKEN:
+            return {
+                ...state,
+                accessTokenResponse: action.payload.data
             }
 
         default:
