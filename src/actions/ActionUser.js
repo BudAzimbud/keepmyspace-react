@@ -5,6 +5,8 @@ export const POST_CREATE_USER = 'POST_CREATE_USER'
 export const createUser = (data) => {
     return dispatch => {
         axios.post('http://localhost:8080/auth/signup', data).then((res) => {
+            console.log(res)
+            console.log(res.response)
             dispatch({
                 type: POST_CREATE_USER,
                 payload: {
