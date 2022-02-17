@@ -2,6 +2,8 @@ import axios from 'axios'
 
 export const POST_CREATE_USER = 'POST_CREATE_USER'
 export const USER_CREATE_ACCESS_TOKEN = 'USER_CREATE_ACCESS_TOKEN'
+export const GET_USER_PROFILE = 'GET_USER_PROFILE'
+
 
 export const createUser = (data) => {
     return dispatch => {
@@ -55,3 +57,36 @@ export const createAccessToken = (data) => {
         })
     }
 }
+
+
+export const getProfileUser = (data) => {
+    return dispatch => {
+        axios.get('http://localhost:8080/settings/profile', {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem('token')
+            }
+        }).then((res) => {
+            console.log(res)
+            dispatch({
+                type: GET_USER_PROFILE,
+                payload: {
+                    data: res.data,
+                    errorMessage: false,
+                }
+
+            })
+        }).catch((err) => {
+            console.log(err)
+            dispatch({
+                type: GET_USER_PROFILE,
+                payload: {
+                    data: false,
+                    errorMessage: err.message,
+                    statusCode: err.response.status
+                }
+
+            })
+        })
+    }
+}
+

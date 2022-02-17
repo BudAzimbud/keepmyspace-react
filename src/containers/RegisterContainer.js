@@ -7,8 +7,6 @@ import './RegisterPage.css'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
 
-
-
 const mapStateToProps = (state) => {
     return {
         createUserResponse: state.users.createUserResponse,
@@ -23,8 +21,6 @@ function RegisterContainer(props) {
         props.dispatch(createUser(data));
         setIsLoading(true)
     }
-
-
 
     if (props.createUserResponse.data) {
         const Toast = Swal.mixin({
@@ -77,6 +73,6 @@ function RegisterContainer(props) {
             </Container>
         </div>
     );
-}
+}   
 
 export default connect(mapStateToProps, null)(RegisterContainer);

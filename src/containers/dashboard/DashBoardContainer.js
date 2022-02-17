@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {Container} from 'react-bootstrap'
 function DashBoardContainer() {
     return (
-        <div>DashBoardContainer</div>
+        <Container>DashBoardContainer</Container>
     )
 }
 

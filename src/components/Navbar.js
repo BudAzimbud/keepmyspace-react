@@ -12,7 +12,7 @@ class NavbarComponent extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/feature">Features</Nav.Link>
-                            <Nav.Link href="/prices">Pricing</Nav.Link>
+                            <Nav.Link href="/prices" >Pricing</Nav.Link>
                             <Form className="d-flex">
                                 <FormControl
                                     size="sm"

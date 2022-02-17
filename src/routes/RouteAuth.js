@@ -2,14 +2,16 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import HomeContainer from '../containers/HomeContainer';
-import NavbarComponent from '../components/Navbar';
-import DashBoardContainer from '../containers/dashboard/dashboard';
+import DashBoardContainer from '../containers/dashboard/DashBoardContainer';
+import NavbarDashboardComponent from '../components/NavbarDashBoard';
 
-function RouteAuth() {
+
+
+function RouteAuth(props) {
     return (
         <div>
             <BrowserRouter>
-                <NavbarComponent />
+                <NavbarDashboardComponent />
                 <Routes>
                     <Route
                         path="/login"
