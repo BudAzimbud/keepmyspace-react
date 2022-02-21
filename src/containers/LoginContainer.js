@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 const mapStateToProps = (state) => {
     return {
         token: state.users.accessTokenResponse,
+        error: state.users.accessTokenError
     }
 }
 
@@ -46,12 +47,21 @@ function LoginContainer(props) {
         })
     }
 
-    if (props.token == false) {
-        Swal.fire({
-            icon: 'error',
-            text: 'Akun anda tidak valid!',
-        })
-        window.location.reload()
+    if (props.error) {
+        if (props.error == 403) {
+            Swal.fire({
+                icon: 'error',
+                text: 'Akun belum di verifikasi check email!',
+            })
+        }
+
+        if (props.error == 401) {
+            Swal.fire({
+                icon: 'error',
+                text: 'Akun anda tidak valid!',
+            })
+        }
+
     }
 
     return (
