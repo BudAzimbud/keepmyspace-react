@@ -24,6 +24,8 @@ class NavbarDashboardComponent extends Component {
     }
 
     render() {
+        console.log(this.props.profile.image)
+      
         return (
             <div>
                 <Navbar collapseOnSelect g="light" expand="lg">
@@ -44,12 +46,14 @@ class NavbarDashboardComponent extends Component {
                                 </Form>
                             </Nav>
                             <Nav>
-                                <Nav.Link href="/register"><h5>Alfred takoi</h5></Nav.Link>
+                                <Nav.Link href="/register"><h5>{this.props.profile.fullName}</h5></Nav.Link>
                                 <Dropdown>
                                     <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1">
+                                            <img src={this.props.profile.image.url} alt=""/>
+                                        </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Divider />
                                         <Dropdown.Item href="/login" onClick={this.logout}>Logout</Dropdown.Item>
@@ -59,9 +63,7 @@ class NavbarDashboardComponent extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-
             </div >
-
         );
     }
 }
