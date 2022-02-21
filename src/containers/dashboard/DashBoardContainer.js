@@ -1,9 +1,25 @@
-import React from 'react'
-import {Container} from 'react-bootstrap'
-function DashBoardContainer() {
-    return (
-        <Container>DashBoardContainer</Container>
-    )
+import React, { Component } from 'react'
+import { Container } from 'react-bootstrap'
+import TableSearchComponents from '../../components/TableTenantComponents'
+import { connect } from 'react-redux'
+
+import { listAllTenant } from '../../actions/ActionTenant'
+
+class DashBoardContainer extends Component {
+
+    componentDidMount() {
+        this.props.dispatch(listAllTenant())
+    }
+
+
+    render() {
+        return (
+            <Container>
+                <TableSearchComponents />
+            </Container>
+        )
+    }
+
 }
 
-export default DashBoardContainer
+export default connect()(DashBoardContainer)
