@@ -35,9 +35,9 @@ export const createUser = (data) => {
 export const createAccessToken = (data) => {
     return dispatch => {
         axios.post('http://localhost:8080/auth/login', data).then((res) => {
-            console.log(res)
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
+
                 payload: {
                     data: res.data,
                     errorMessage: false,
@@ -66,7 +66,6 @@ export const getProfileUser = (data) => {
                 Authorization: "Bearer " + localStorage.getItem('token')
             }
         }).then((res) => {
-            console.log(res)
             dispatch({
                 type: GET_USER_PROFILE,
                 payload: {
@@ -76,7 +75,6 @@ export const getProfileUser = (data) => {
 
             })
         }).catch((err) => {
-            console.log(err)
             dispatch({
                 type: GET_USER_PROFILE,
                 payload: {
