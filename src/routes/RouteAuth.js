@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import HomeContainer from '../containers/HomeContainer';
-import DashBoardContainer from '../containers/dashboard/DashBoardContainer';
 import NavbarDashboardComponent from '../components/NavbarDashBoard';
 
 
