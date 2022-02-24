@@ -1,6 +1,6 @@
 import axios from 'axios'
 export const GET_ALL_TENANT = 'GET_ALL_TENANT'
-
+export const POST_CREATE_TENANT = 'POST_CREATE_TENANT'
 
 
 
@@ -33,4 +33,38 @@ export const listAllTenant = (data) => {
         })
     }
 }
+
+
+
+
+export const createTenant = (data) => {
+    return dispatch => {
+        axios.post('http://localhost:8080/tenants/',data, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem('token')
+            }
+        }
+        ).then((res) => {
+            dispatch({
+                type: POST_CREATE_TENANT,
+                payload: {
+                    data: res.data.data,
+                    errorMessage: false,
+                }
+
+            })
+        }).catch((err) => {
+            dispatch({
+                type: POST_CREATE_TENANT,
+                payload: {
+                    data: false,
+                    errorMessage: err.message,
+                    statusCode: err.response.status
+                }
+
+            })
+        })
+    }
+}
+
 

@@ -48,14 +48,15 @@ function LoginContainer(props) {
     }
 
     if (props.error) {
-        if (props.error == 403) {
+
+        if (props.error === 403) {
             Swal.fire({
                 icon: 'error',
                 text: 'Akun belum di verifikasi check email!',
             })
         }
 
-        if (props.error == 401) {
+        if (props.error === 401) {
             Swal.fire({
                 icon: 'error',
                 text: 'Akun anda tidak valid!',

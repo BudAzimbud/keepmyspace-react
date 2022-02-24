@@ -1,6 +1,6 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Container, Button, Row, Col } from 'react-bootstrap'
+import { Container, Button, Row, Col, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
@@ -25,32 +25,36 @@ const columns = [
         text: "Action",
         formatter: (rowContent, row) => {
             return (
-                <div className='d-flex justify-content-between'>
-                    <Link to={"detail/" + row.id}>
-                        <Button color="dark" className="mr-2">
-                            Detail
+                <div className=''>
+                    <Link to={"delete/" + row.id} className >
+                        <Button variant="danger" className="mr-2">
+                            Delete
                         </Button>
                     </Link>
 
-                    <Link to={"edit/" + row.id}>
-                        <Button color="dark" className="mr-2">
+                    <Link to={"/tenant/edit/    " + row.id}>
+                        <Button variant="warning" className="mr-2">
                             Edit
                         </Button>
                     </Link>
 
-                    <Button
-                        color="dark"
-                        className="mr-2"
-                    // onClick={() => handleDelete(props.dispatch, row.id)}
-                    >
-                        Delete
-                    </Button>
+                    <Link to={"/tenant/details/    " + row.id}>
+                        <Button variant="secondary" className="mr-2">
+                            Detail
+                        </Button>
+                    </Link>
+
                 </div>
             );
         },
     },
 ];
 
+const rowEvents = {
+    onClick: (e, row, rowIndex) => {
+
+    }
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -74,14 +78,16 @@ function TableTenantComponents(props) {
                             <div>
                                 <Row>
                                     <Col>
-                                        <Link to={"create/"}>
+
+                                        <SearchBar {...props.searchProps} />
+
+                                    </Col>
+                                    <Col className='d-flex justify-content-end mt-4'>
+                                        <Link to={"/tenant/create"}>
                                             <Button color="dark" className="mr-3">
-                                                Add
+                                                New
                                             </Button>
                                         </Link>
-                                    </Col>
-                                    <Col>
-                                        <SearchBar {...props.searchProps} />
                                     </Col>
                                 </Row>
 
@@ -89,11 +95,13 @@ function TableTenantComponents(props) {
                                 <BootstrapTable
                                     {...props.baseProps}
                                     pagination={paginationFactory()}
+                                    rowEvents={rowEvents}
                                 />
                             </div>
                         )}
                     </ToolkitProvider>
-                    : null
+                    : <Spinner animation="border" role="status">
+                    </Spinner>
 
             }
         </Container>
