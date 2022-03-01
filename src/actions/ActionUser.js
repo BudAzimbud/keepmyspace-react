@@ -1,4 +1,4 @@
-import axios from 'axios'
+import httpRequest from './helper/http'
 
 export const POST_CREATE_USER = 'POST_CREATE_USER'
 export const USER_CREATE_ACCESS_TOKEN = 'USER_CREATE_ACCESS_TOKEN'
@@ -7,7 +7,7 @@ export const GET_USER_PROFILE = 'GET_USER_PROFILE'
 
 export const createUser = (data) => {
     return dispatch => {
-        axios.post('http://localhost:8080/auth/signup', data).then((res) => {
+        httpRequest.post('auth/signup', data).then((res) => {
             dispatch({
                 type: POST_CREATE_USER,
                 payload: {
@@ -34,7 +34,7 @@ export const createUser = (data) => {
 
 export const createAccessToken = (data) => {
     return dispatch => {
-        axios.post('http://localhost:8080/auth/login', data).then((res) => {
+        httpRequest.post('auth/login', data).then((res) => {
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
 
@@ -61,7 +61,7 @@ export const createAccessToken = (data) => {
 
 export const getProfileUser = (data) => {
     return dispatch => {
-        axios.get('http://localhost:8080/settings/profile', {
+        httpRequest.get('settings/profile', {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token')
             }

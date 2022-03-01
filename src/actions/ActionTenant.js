@@ -1,4 +1,5 @@
-import axios from 'axios'
+import httpRequest from "./helper/http"
+
 export const GET_ALL_TENANT = 'GET_ALL_TENANT'
 export const POST_CREATE_TENANT = 'POST_CREATE_TENANT'
 
@@ -6,7 +7,7 @@ export const POST_CREATE_TENANT = 'POST_CREATE_TENANT'
 
 export const listAllTenant = (data) => {
     return dispatch => {
-        axios.get('http://localhost:8080/tenants/', {
+        httpRequest.get('tenants/', {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token')
             }
@@ -39,7 +40,7 @@ export const listAllTenant = (data) => {
 
 export const createTenant = (data) => {
     return dispatch => {
-        axios.post('http://localhost:8080/tenants/',data, {
+        httpRequest.post('tenants/', data, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token')
             }
