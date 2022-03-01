@@ -32,13 +32,13 @@ const columns = [
                         </Button>
                     </Link>
 
-                    <Link to={"/tenant/edit/    " + row.id}>
+                    <Link to={"/tenant/edit/" + row.id}>
                         <Button variant="warning" className="mr-2">
                             Edit
                         </Button>
                     </Link>
 
-                    <Link to={"/tenant/details/    " + row.id}>
+                    <Link to={"/tenant/details/" + row.id}>
                         <Button variant="secondary" className="mr-2">
                             Detail
                         </Button>

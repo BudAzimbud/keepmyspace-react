@@ -1,10 +1,14 @@
-import { GET_ALL_TENANT, POST_CREATE_TENANT } from "../actions/ActionTenant"
+import { GET_ALL_TENANT, POST_CREATE_TENANT, GET_ONE_TENANT, EDIT_TENANT } from "../actions/ActionTenant"
 
 const initialState = {
     listAllTenant: false,
     listAllTenantError: false,
-    createTenantResponse : false ,
-    createTenantError : false ,
+    createTenantResponse: false,
+    createTenantError: false,
+    findTenantResponse: false,
+    findTenantError: false,
+    editTenantResponse: false,
+    editTenantError: false
 }
 
 function tenants(state = initialState, action) {
@@ -23,6 +27,21 @@ function tenants(state = initialState, action) {
                 createTenantError: action.payload
 
             }
+        case GET_ONE_TENANT:
+            return {
+                ...state,
+                findTenantResponse: action.payload.data,
+                findTenantError: action.payload
+
+            }
+        case EDIT_TENANT:
+            return {
+                ...state,
+                editTenantResponse: action.payload.data,
+                editTenantError: action.payload
+
+            }
+
 
         default:
             return state

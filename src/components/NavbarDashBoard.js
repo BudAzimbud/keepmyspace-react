@@ -24,7 +24,6 @@ class NavbarDashboardComponent extends Component {
     }
 
     render() {
-        // console.log(this.props.profile.image)
 
         return (
 
@@ -49,11 +48,11 @@ class NavbarDashboardComponent extends Component {
                             <Nav>
                                 <Nav.Link href="/register"><h5>{this.props.profile.fullName}</h5></Nav.Link>
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
+                                    <Dropdown.Toggle id="dropdown-basic" >
+                                        <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         <Dropdown.Item href="#/action-1">
-                                            <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
                                         </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Divider />

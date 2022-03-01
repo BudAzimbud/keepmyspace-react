@@ -4,7 +4,7 @@ import { Row, Col, Form, Button, Spinner } from "react-bootstrap";
 
 import { reduxForm, Field } from "redux-form";
 import TenantValidation from '../validate/tenantValidate';
-
+import { connect } from 'react-redux'
 const renderField = ({
     input,
     type,
@@ -29,6 +29,19 @@ const renderField = ({
     </Row>
 
 )
+
+const mapStateProps = (state) => {
+    return {
+        initialValues: {
+            nameTenant: state.tenants.findTenantResponse.nameTenant,
+            city: state.tenants.findTenantResponse.city,
+            province: state.tenants.findTenantResponse.province,
+            address: state.tenants.findTenantResponse.address,
+            postalCode: state.tenants.findTenantResponse.postalCode,
+        },
+    };
+};
+
 
 
 
@@ -113,4 +126,4 @@ TenantFormComponent = reduxForm({
     validate: TenantValidation,
     enableReinitialize: true,
 })(TenantFormComponent);
-export default TenantFormComponent
+export default connect(mapStateProps, null)(TenantFormComponent)
