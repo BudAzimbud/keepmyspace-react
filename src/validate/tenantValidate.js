@@ -21,9 +21,6 @@ const TenantValidation = (values) => {
         errors.postalCode = "Time zone harus diisi";
     }
 
-    if (!values.timeZone || values.timeZone === "") {
-        errors.timeZone = "Time zone harus diisi";
-    }
 
 
 

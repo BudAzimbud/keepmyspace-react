@@ -1,4 +1,5 @@
 import httpRequest from './helper/http'
+import axios from 'axios'
 
 export const POST_CREATE_USER = 'POST_CREATE_USER'
 export const USER_CREATE_ACCESS_TOKEN = 'USER_CREATE_ACCESS_TOKEN'
@@ -34,7 +35,7 @@ export const createUser = (data) => {
 
 export const createAccessToken = (data) => {
     return dispatch => {
-        httpRequest.post('auth/login', data).then((res) => {
+        axios.post('http://localhost:8080/auth/login', data).then((res) => {
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
 
@@ -42,7 +43,6 @@ export const createAccessToken = (data) => {
                     data: res.data,
                     errorMessage: false,
                 }
-
             })
         }).catch((err) => {
             dispatch({

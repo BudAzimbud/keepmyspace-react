@@ -101,12 +101,12 @@ export const findOneTenant = (id) => {
 
 
 
-export const editTenant = (id,data) => {
+export const editTenant = (id, data) => {
     return dispatch => {
-        httpRequest.get('tenants/',data ,{
+        httpRequest.put('tenants/', data, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token'),
-                tenantid : id,
+                tenantid: id,
             }
         }
         ).then((res) => {

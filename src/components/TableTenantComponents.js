@@ -8,6 +8,10 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 const { SearchBar } = Search;
 
 
+const sortingHeaderStyle = {
+    backgroundColor: 'red'
+};
+
 const columns = [
 
     {
@@ -26,11 +30,6 @@ const columns = [
         formatter: (rowContent, row) => {
             return (
                 <div className=''>
-                    <Link to={"delete/" + row.id} className >
-                        <Button variant="danger" className="mr-2">
-                            Delete
-                        </Button>
-                    </Link>
 
                     <Link to={"/tenant/edit/" + row.id}>
                         <Button variant="warning" className="mr-2">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import LoginPages from '../containers/LoginContainer'
@@ -10,14 +10,22 @@ import DetailTenantContainer from '../containers/tenant/DetailTenantContainer';
 import NavbarDashBoardComponent from '../components/NavbarDashBoard';
 import EditTenantContainer from '../containers/tenant/EditTenantContainer';
 
+
 function RouteHome() {
+
+    const [isLogin, setIsLogin] = useState(false)
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setIsLogin(true)
+        }
+    }, [])
+
     return (
         <div>
             <BrowserRouter>
-                {localStorage.getItem('token') ? <NavbarDashBoardComponent /> : null}
-
+                {isLogin ? <NavbarDashBoardComponent /> : null}
                 <Routes>
-
                     {localStorage.getItem('token') ? <Route
                         path="/login"
                         element={<Navigate to="/dashboard" />}

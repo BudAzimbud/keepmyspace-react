@@ -4,8 +4,11 @@ import { createTenant } from '../../actions/ActionTenant';
 import TenantFormComponent from '../../components/TenantFormComponent';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ButtonHome from '../../components/ButtonHome';
 
 const mapStateToProps = (state) => {
+
+
     return {
         createTenantResponse: state.tenants.createTenantResponse,
         createTenantError: state.tenants.createTenantError
@@ -20,6 +23,7 @@ function CreateTenantContainer(props) {
     const [isLoading, setIsLoading] = useState(false)
 
     const handleSubmit = (data) => {
+        console.log(data)
         props.dispatch(createTenant(data))
         setIsLoading(true)
         history('/dashboard', { state: true })
@@ -28,6 +32,7 @@ function CreateTenantContainer(props) {
 
     return (
         <Container>
+            <ButtonHome />
             <TenantFormComponent onSubmit={(data) => { handleSubmit(data) }} isLoading={isLoading} />
         </Container>
     );

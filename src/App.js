@@ -1,7 +1,7 @@
 import './App.css';
 
 
-import RouteHome from './routes/RouteHome';
+import RouteHome from './routes/Route';
 
 function App() {
 

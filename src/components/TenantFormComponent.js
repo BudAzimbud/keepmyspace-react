@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 const renderField = ({
     input,
     type,
+    as,
     placeholder,
     label,
     disabled,
@@ -21,7 +22,7 @@ const renderField = ({
             </h1>
         </Col>
         <Col md="12">
-            <Form.Control {...input} type={type} placeholder={placeholder} disabled={disabled} readOnly={readOnly} />
+            <Form.Control {...input} type={type} as={as} placeholder={placeholder} disabled={disabled} readOnly={readOnly} />
             {touched &&
                 ((error && <p className="mb-0" style={{ color: "red" }}>{error}</p>) ||
                     (warning && <p style={{ color: "brown" }}>{warning}</p>))}
@@ -29,6 +30,41 @@ const renderField = ({
     </Row>
 
 )
+
+
+const options = [
+    {
+        label: "Asia/Jakarta",
+        value: "asia/jakarta",
+    }
+];
+const renderSelect = ({
+    input,
+    label,
+    option,
+    readOnly,
+    meta: { touched, error, warning },
+}) => (
+    <Row>
+        <Col md="12">
+            <h1 htmlFor="{input}" className="col-form-label">
+                {label}
+            </h1>
+        </Col>
+        <Col md="12">
+            <Form.Select aria-label="Default select example" onChange={input.onChange}>
+                {options.map((option) => (
+                    <option value={option.value}>{option.label}</option>
+                ))}
+            </Form.Select>
+            {touched &&
+                ((error && <p className="mb-0" style={{ color: "red" }}>{error}</p>) ||
+                    (warning && <p style={{ color: "brown" }}>{warning}</p>))}
+        </Col>
+    </Row>
+
+)
+
 
 const mapStateProps = (state) => {
     return {
@@ -68,7 +104,6 @@ class TenantFormComponent extends Component {
                         />
                     </Form.Group>
 
-
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
                             type="text"
@@ -80,7 +115,7 @@ class TenantFormComponent extends Component {
 
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
-                            type="textarea"
+                            as="textarea"
                             name="address"
                             component={renderField}
                             placeholder="Alamat..."
@@ -89,7 +124,7 @@ class TenantFormComponent extends Component {
 
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
-                            type="text"
+                            type="number"
                             name="postalCode"
                             component={renderField}
                             placeholder="Kode Pos..."
@@ -100,10 +135,10 @@ class TenantFormComponent extends Component {
                         <Field
                             type="text"
                             name="timeZone"
-                            component={renderField}
-                            placeholder="Time zone.."
+                            component={renderSelect}
                         />
                     </Form.Group>
+
 
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
                         {this.props.isLoading ?

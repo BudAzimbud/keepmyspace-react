@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Offcanvas, Button } from 'react-bootstrap'
-
+import { Offcanvas, Button, Row, Nav } from 'react-bootstrap'
+import Navbar from 'react-bootstrap/Navbar'
 function SidebarComponent() {
     const [show, setShow] = useState(false);
 
@@ -16,11 +16,17 @@ function SidebarComponent() {
 
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <Navbar.Brand href="/dashboard">KEEP MY SPACE</Navbar.Brand>
+                    </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    <Row>
+                        <Nav.Link href="/">home</Nav.Link>
+                    </Row>
+                    <Row>
+                        <Nav.Link href="/dashboard">Keluarga</Nav.Link>
+                    </Row>
                 </Offcanvas.Body>
             </Offcanvas>
         </>

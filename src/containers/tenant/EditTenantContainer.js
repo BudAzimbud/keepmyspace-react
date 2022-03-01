@@ -1,10 +1,10 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import TenantFormComponent from '../../components/TenantFormComponent'
 import { connect } from 'react-redux'
 import ButtonHome from '../../components/ButtonHome'
-import { findOneTenant } from '../../actions/ActionTenant'
+import { editTenant, findOneTenant } from '../../actions/ActionTenant'
 
 function EditTenantContainer(props) {
 
@@ -13,10 +13,11 @@ function EditTenantContainer(props) {
 
     useEffect(() => {
         props.dispatch(findOneTenant(id))
-      });
-    
+    });
+
 
     const handleSubmit = (data) => {
+        props.dispatch(editTenant(id, data))
         setIsLoading(true)
     }
     return (
