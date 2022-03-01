@@ -23,7 +23,6 @@ function CreateTenantContainer(props) {
     const [isLoading, setIsLoading] = useState(false)
 
     const handleSubmit = (data) => {
-        console.log(data)
         props.dispatch(createTenant(data))
         setIsLoading(true)
         history('/dashboard', { state: true })
@@ -31,8 +30,9 @@ function CreateTenantContainer(props) {
     }
 
     return (
-        <Container>
+        <Container className="mt-3">
             <ButtonHome />
+            <h4 className='mt-3'>Membuat Keluarga Baru</h4>
             <TenantFormComponent onSubmit={(data) => { handleSubmit(data) }} isLoading={isLoading} />
         </Container>
     );

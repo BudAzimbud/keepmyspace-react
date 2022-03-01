@@ -22,8 +22,10 @@ function EditTenantContainer(props) {
     }
     return (
         <div>
-            <Container>
+            <Container className='mt-4'>
                 <ButtonHome />
+                <h4 className='mt-3'>Mengubah Data Keluarga</h4>
+
                 <TenantFormComponent onSubmit={(data) => { handleSubmit(data) }} isLoading={isLoading} />
             </Container>
         </div>

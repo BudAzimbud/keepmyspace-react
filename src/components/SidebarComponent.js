@@ -9,12 +9,12 @@ function SidebarComponent() {
 
 
     return (
-        <>
-            <Button variant="outline-dark border-0" onClick={handleShow}>
+        <div className='sidebar-menu'>
+            <Button variant="outline-light border-0" onClick={handleShow}>
                 KEEP MY SPACE
             </Button>
 
-            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas show={show} onHide={handleClose} bg="dark">
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                         <Navbar.Brand href="/dashboard">KEEP MY SPACE</Navbar.Brand>
@@ -29,7 +29,7 @@ function SidebarComponent() {
                     </Row>
                 </Offcanvas.Body>
             </Offcanvas>
-        </>
+        </div>
     );
 }
 

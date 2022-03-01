@@ -34,9 +34,21 @@ const renderField = ({
 
 const options = [
     {
-        label: "Asia/Jakarta",
-        value: "asia/jakarta",
-    }
+        label: "Apple",
+        value: "apple",
+    },
+    {
+        label: "Mango",
+        value: "mango",
+    },
+    {
+        label: "Banana",
+        value: "banana",
+    },
+    {
+        label: "Pineapple",
+        value: "pineapple",
+    },
 ];
 const renderSelect = ({
     input,
@@ -53,6 +65,7 @@ const renderSelect = ({
         </Col>
         <Col md="12">
             <Form.Select aria-label="Default select example" onChange={input.onChange}>
+                <option>Open this select menu</option>
                 {options.map((option) => (
                     <option value={option.value}>{option.label}</option>
                 ))}

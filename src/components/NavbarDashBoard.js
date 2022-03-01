@@ -28,12 +28,11 @@ class NavbarDashboardComponent extends Component {
         return (
 
             this.props.profile ? <div>
-                <Navbar collapseOnSelect g="light" expand="lg">
+                <Navbar collapseOnSelect bg="dark" expand="lg" variant="dark">
                     <Container>
                         <SidebarComponent />
-                        <Navbar.Brand href="/"></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav">
+                        <Navbar.Collapse id="responsive-navbar-nav" >
                             <Nav className="me-auto">
                                 <Form className="d-flex">
                                     <FormControl
@@ -45,12 +44,11 @@ class NavbarDashboardComponent extends Component {
                                     <Button variant="outline-secondary">Search</Button>
                                 </Form>
                             </Nav>
+                            <h5 className='mt-3' style={{ color: 'white' }}>{this.props.profile.fullName}</h5>
                             <Nav>
-                                <Nav.Link href="/register"><h5>{this.props.profile.fullName}</h5></Nav.Link>
+
                                 <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic" >
-                                        <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
-                                    </Dropdown.Toggle>
+                                    <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
                                     <Dropdown.Menu>
                                         <Dropdown.Item href="#/action-1">
                                         </Dropdown.Item>

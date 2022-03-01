@@ -32,13 +32,13 @@ const columns = [
                 <div className=''>
 
                     <Link to={"/tenant/edit/" + row.id}>
-                        <Button variant="warning" className="mr-2">
-                            Edit
+                        <Button variant="outline-success" className="mr-2" size="sm">
+                            Ubah
                         </Button>
                     </Link>
 
                     <Link to={"/tenant/details/" + row.id}>
-                        <Button variant="secondary" className="mr-2">
+                        <Button variant="outline-primary" className="mr-2" size="sm">
                             Detail
                         </Button>
                     </Link>
@@ -74,7 +74,7 @@ function TableTenantComponents(props) {
                         search
                     >
                         {(props) => (
-                            <div>
+                            <div className='mt-3'>
                                 <Row>
                                     <Col>
 
@@ -83,8 +83,8 @@ function TableTenantComponents(props) {
                                     </Col>
                                     <Col className='d-flex justify-content-end mt-4'>
                                         <Link to={"/tenant/create"}>
-                                            <Button color="dark" className="mr-3">
-                                                New
+                                            <Button variant="danger" className="mr-3">
+                                                Buat Keluarga
                                             </Button>
                                         </Link>
                                     </Col>

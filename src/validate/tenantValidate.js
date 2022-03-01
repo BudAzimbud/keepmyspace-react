@@ -18,7 +18,11 @@ const TenantValidation = (values) => {
     }
 
     if (!values.postalCode || values.postalCode === "") {
-        errors.postalCode = "Time zone harus diisi";
+        errors.postalCode = "Kode Pos harus diisi";
+    }
+
+    if (!values.address || values.address === "") {
+        errors.address = "Alamat harus diisi";
     }
 
 
