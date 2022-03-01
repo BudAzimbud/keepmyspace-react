@@ -4,7 +4,7 @@ import { Nav, Container, Form, FormControl, Button, Dropdown } from 'react-boots
 import SidebarComponent from './SidebarComponent';
 import { connect } from 'react-redux'
 import { getProfileUser } from '../actions/ActionUser';
-
+import Avatar from 'react-avatar';
 
 const mapStateToProps = (state) => {
     return {
@@ -24,10 +24,11 @@ class NavbarDashboardComponent extends Component {
     }
 
     render() {
-        console.log(this.props.profile.image)
-      
+        // console.log(this.props.profile.image)
+
         return (
-            <div>
+
+            this.props.profile ? <div>
                 <Navbar collapseOnSelect g="light" expand="lg">
                     <Container>
                         <SidebarComponent />
@@ -52,7 +53,7 @@ class NavbarDashboardComponent extends Component {
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         <Dropdown.Item href="#/action-1">
-                                            <img src={this.props.profile.image.url} alt=""/>
+                                            <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
                                         </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Divider />
@@ -63,7 +64,9 @@ class NavbarDashboardComponent extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-            </div >
+            </div > : null
+
+
         );
     }
 }

@@ -1,15 +1,15 @@
 import './App.css';
-import NavbarComponent from './components/Navbar';
+import NavbarDashBoardComponent from './components/NavbarDashBoard';
+
 
 import RouteHome from './routes/RouteHome';
 
 function App() {
 
-  // localStorage.removeItem('token')
 
   return (
     <div className="App">
-      <NavbarComponent />
+      {localStorage.getItem('token') ? <NavbarDashBoardComponent /> : null }
       < RouteHome />
     </div>
   );

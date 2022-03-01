@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import NavbarComponent from '../components/Navbar';
 
 const mapStateToProps = (state) => {
     return {
@@ -23,7 +24,6 @@ function LoginContainer(props) {
 
     const handleSubmit = (data) => {
         props.dispatch(createAccessToken(data));
-        setIsLoading(true)
     }
 
     if (props.token) {
@@ -67,6 +67,7 @@ function LoginContainer(props) {
 
     return (
         <div>
+            <NavbarComponent />
             <Container>
                 <Row className='mt-3'>
                     <Col xs lg={5}>
