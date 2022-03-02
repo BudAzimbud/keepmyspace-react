@@ -32,29 +32,17 @@ const renderField = ({
 )
 
 
-const options = [
-    {
-        label: "Apple",
-        value: "apple",
-    },
-    {
-        label: "Mango",
-        value: "mango",
-    },
-    {
-        label: "Banana",
-        value: "banana",
-    },
-    {
-        label: "Pineapple",
-        value: "pineapple",
-    },
+const optionsTimeZone = [
+    "Asia/Jakarata",
+    "Africa/Tunis",
+    "America/angulia"
 ];
 const renderSelect = ({
     input,
     label,
-    option,
+    options,
     readOnly,
+    title,
     meta: { touched, error, warning },
 }) => (
     <Row>
@@ -65,9 +53,9 @@ const renderSelect = ({
         </Col>
         <Col md="12">
             <Form.Select aria-label="Default select example" onChange={input.onChange}>
-                <option>Open this select menu</option>
+                <option>Silahkan Pilih {title}</option>
                 {options.map((option) => (
-                    <option value={option.value}>{option.label}</option>
+                    <option value={option}>{option}</option>
                 ))}
             </Form.Select>
             {touched &&
@@ -149,6 +137,8 @@ class TenantFormComponent extends Component {
                             type="text"
                             name="timeZone"
                             component={renderSelect}
+                            title={'Zona waktu'}
+                            options={optionsTimeZone}
                         />
                     </Form.Group>
 

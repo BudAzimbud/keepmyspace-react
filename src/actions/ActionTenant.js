@@ -99,6 +99,18 @@ export const findOneTenant = (id) => {
     }
 }
 
+export const emptyTenant = () => {
+    return dispatch => {
+        dispatch({
+            type: GET_ONE_TENANT,
+            payload: {
+                data: false,
+                errorMessage: false
+            }
+
+        })
+    }
+}
 
 
 export const editTenant = (id, data) => {

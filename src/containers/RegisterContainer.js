@@ -6,7 +6,7 @@ import { createUser } from '../actions/ActionUser';
 import './RegisterPage.css'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
-import NavbarComponent from '../components/Navbar';
+import NavbarHomeComponent from '../components/NavbarHomeComponent';
 
 const mapStateToProps = (state) => {
     return {
@@ -59,7 +59,6 @@ function RegisterContainer(props) {
 
     return (
         <div className="register-container">
-            <NavbarComponent />
             <Container >
                 <h2>Join With Us</h2>
                 <div className='d-flex justify-content-end'>

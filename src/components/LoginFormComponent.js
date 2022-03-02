@@ -42,7 +42,7 @@ class LoginFormComponent extends Component {
                 <form onSubmit={this.props.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Field
-                            type="email"
+                            type="text"
                             name="email"
                             component={renderField}
                             placeholder="Email"

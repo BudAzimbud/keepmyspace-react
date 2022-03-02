@@ -1,0 +1,15 @@
+.title-sidebar {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+}
+
+.menu {
+  padding: 10px;
+  font-size: 18px;
+  color: blue;
+}
+
+.menu:hover {
+  background-color: black;
+  color: rgb(170, 134, 134);
+}

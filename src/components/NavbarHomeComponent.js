@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Container, Form, FormControl, Button } from 'react-bootstrap'
-class NavbarComponent extends Component {
+
+class NavbarHomeComponent extends Component {
 
     render() {
         return (
@@ -36,4 +37,4 @@ class NavbarComponent extends Component {
     }
 }
 
-export default NavbarComponent;
+export default NavbarHomeComponent;

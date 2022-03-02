@@ -26,7 +26,6 @@ class NavbarDashboardComponent extends Component {
     render() {
 
         return (
-
             this.props.profile ? <div>
                 <Navbar collapseOnSelect bg="dark" expand="lg" variant="dark">
                     <Container>

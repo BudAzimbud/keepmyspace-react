@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import NavbarComponent from '../components/Navbar';
 
 const mapStateToProps = (state) => {
     return {
@@ -20,7 +19,7 @@ const mapStateToProps = (state) => {
 function LoginContainer(props) {
     const history = useNavigate()
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading] = useState(false)
 
 
     const handleSubmit = (data) => {
@@ -28,7 +27,6 @@ function LoginContainer(props) {
     }
 
     if (props.token) {
-        localStorage.setItem('token', props.token.access_token)
         history('/dashboard', { state: true })
         const Toast = Swal.mixin({
             toast: true,
@@ -49,27 +47,9 @@ function LoginContainer(props) {
     }
 
 
-    if (props.error) {
-
-        if (props.error === 403) {
-            Swal.fire({
-                icon: 'error',
-                text: 'Akun belum di verifikasi check email!',
-            })
-        }
-
-        if (props.error === 401) {
-            Swal.fire({
-                icon: 'error',
-                text: 'Akun anda tidak valid!',
-            })
-        }
-
-    }
 
     return (
         <div>
-            <NavbarComponent />
             <Container>
                 <Row className='mt-3'>
                     <Col xs lg={5}>

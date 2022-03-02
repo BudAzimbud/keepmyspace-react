@@ -1,5 +1,6 @@
 import httpRequest from './helper/http'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export const POST_CREATE_USER = 'POST_CREATE_USER'
 export const USER_CREATE_ACCESS_TOKEN = 'USER_CREATE_ACCESS_TOKEN'
@@ -36,6 +37,7 @@ export const createUser = (data) => {
 export const createAccessToken = (data) => {
     return dispatch => {
         axios.post('http://localhost:8080/auth/login', data).then((res) => {
+            localStorage.setItem('token', res.data.access_token)
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
 
@@ -45,6 +47,20 @@ export const createAccessToken = (data) => {
                 }
             })
         }).catch((err) => {
+            if (err.response.status == 401) {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Akun tidak valid!',
+                })
+            }
+
+            if (err.response.status == 403) {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Akun belum di verifikasi check email!',
+                })
+            }
+
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
                 payload: {

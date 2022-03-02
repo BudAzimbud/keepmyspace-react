@@ -11,6 +11,7 @@ httpRequest.interceptors.response.use(response => response,
         // }
         switch (error.response.status) {
             case 401:
+                console.log(window)
                 window.location.href = "/login"
                 localStorage.removeItem('token')
                 return error
