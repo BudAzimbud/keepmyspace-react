@@ -3,7 +3,7 @@ import { POST_CREATE_USER, USER_CREATE_ACCESS_TOKEN, GET_USER_PROFILE } from '..
 const initialState = {
     createUserResponse: false,
     createUserError: false,
-    accessToken: false,
+    accessTokenResponse: false,
     accessTokenError: false,
     profile: false,
     title: 'keepmyspace'

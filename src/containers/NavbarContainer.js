@@ -1,6 +1,17 @@
 import React, { Component, useState, useEffect } from 'react';
 import NavbarDashBoardComponent from '../components/NavbarDashBoardComponent';
 import NavbarHomeComponent from '../components/NavbarHomeComponent';
+import { connect } from 'react-redux'
+
+
+const mapStateToProps = (state) => {
+    console.log(state.users)
+    return {
+        token: state.users.accessTokenResponse,
+        error: state.users.accessTokenError
+    }
+}
+
 
 function NavbarContainer(props) {
 
@@ -22,4 +33,4 @@ function NavbarContainer(props) {
     );
 }
 
-export default NavbarContainer;
+export default connect(mapStateToProps, null)(NavbarContainer);

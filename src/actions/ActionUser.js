@@ -37,12 +37,10 @@ export const createUser = (data) => {
 export const createAccessToken = (data) => {
     return dispatch => {
         axios.post('http://localhost:8080/auth/login', data).then((res) => {
-            localStorage.setItem('token', res.data.access_token)
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
-
                 payload: {
-                    data: res.data,
+                    data: res.data.access_token,
                     errorMessage: false,
                 }
             })

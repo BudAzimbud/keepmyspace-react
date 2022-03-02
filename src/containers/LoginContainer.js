@@ -27,6 +27,8 @@ function LoginContainer(props) {
     }
 
     if (props.token) {
+        localStorage.setItem('token', props.token)
+
         history('/dashboard', { state: true })
         const Toast = Swal.mixin({
             toast: true,
