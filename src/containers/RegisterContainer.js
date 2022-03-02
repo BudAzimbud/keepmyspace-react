@@ -59,6 +59,7 @@ function RegisterContainer(props) {
 
     return (
         <div className="register-container">
+            <NavbarHomeComponent />
             <Container >
                 <h2>Join With Us</h2>
                 <div className='d-flex justify-content-end'>

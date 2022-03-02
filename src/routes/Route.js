@@ -8,6 +8,7 @@ import DashBoardContainer from '../containers/dashboard/DashBoardContainer';
 import CreateTenantContainer from '../containers/tenant/CreateTenantContainer';
 import DetailTenantContainer from '../containers/tenant/DetailTenantContainer';
 import EditTenantContainer from '../containers/tenant/EditTenantContainer';
+import MainPageContainer from '../containers/MainPageContainer';
 
 
 function RouteHome() {
@@ -43,13 +44,14 @@ function RouteHome() {
                     <Route exact path='/register' element={< RegisterContainer />}></Route>
                     <Route exact path='/' element={< HomeContainer />}></Route>
                     <Route exact path='/logout' element={< HomeContainer />}></Route>
-                    <Route exact path='/dashboard' element={< DashBoardContainer />}></Route>
-                    <Route exact path='/tenant/create' element={< CreateTenantContainer />}></Route>
-                    <Route exact path='/tenant/details/:id' element={< DetailTenantContainer />}></Route>
-                    <Route exact path='/tenant/edit/:id' element={< EditTenantContainer />}></Route>
+                    <Route exact path='/dashboard' element={< MainPageContainer component={<DashBoardContainer />} />}></Route>
+                    <Route exact path='/tenant/create' element={< MainPageContainer component={<CreateTenantContainer />} />} ></Route>
+                    <Route exact path='/tenant/details/:id' element={< MainPageContainer component={<DetailTenantContainer />} />} ></Route>
+                    <Route exact path='/tenant/edit/:id' element={< MainPageContainer component={<EditTenantContainer />} />}></Route>
+
                 </Routes>
             </BrowserRouter>
-        </div>
+        </div >
     )
 }
 

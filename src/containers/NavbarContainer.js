@@ -28,7 +28,6 @@ function NavbarContainer(props) {
 
     return (
         <div>
-            {isLoggin ? <NavbarDashBoardComponent /> : <NavbarHomeComponent />}
         </div>
     );
 }

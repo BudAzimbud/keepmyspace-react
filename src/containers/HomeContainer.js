@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import JumbrotonComponent from '../components/JumbrotonComponent';
 import CardPriceComponent from '../components/CardPriceComponent'
+import NavbarHomeComponent from '../components/NavbarHomeComponent';
 import './Home.css'
 class HomeContainer extends Component {
 
     render() {
         return (
             <div >
+                <NavbarHomeComponent />
+
                 <Navbar className="navbar-home" collapseOnSelect >
                     <Container>
 

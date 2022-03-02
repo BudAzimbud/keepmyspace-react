@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import NavbarHomeComponent from '../components/NavbarHomeComponent';
 
 const mapStateToProps = (state) => {
     return {
@@ -52,6 +53,7 @@ function LoginContainer(props) {
 
     return (
         <div>
+            <NavbarHomeComponent />
             <Container>
                 <Row className='mt-3'>
                     <Col xs lg={5}>
