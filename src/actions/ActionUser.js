@@ -37,6 +37,10 @@ export const createUser = (data) => {
 export const createAccessToken = (data) => {
     return dispatch => {
         axios.post('http://localhost:8080/auth/login', data).then((res) => {
+            Swal.fire({
+                icon: 'success',
+                text: 'Berhasil Login',
+            })
             dispatch({
                 type: USER_CREATE_ACCESS_TOKEN,
                 payload: {

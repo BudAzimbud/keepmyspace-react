@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function ButtonHome() {
     return (
         <div>
-            <Link to={"/dashboard"} className >
+            <Link to={"/dashboard"}  >
                 <Button variant="dark">Kembali</Button>
             </Link>
         </div>

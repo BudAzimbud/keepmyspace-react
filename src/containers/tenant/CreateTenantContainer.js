@@ -31,7 +31,6 @@ function CreateTenantContainer(props) {
 
     return (
         <Container className="mt-3">
-            <ButtonHome />
             <h4 className='mt-3'>Membuat Keluarga Baru</h4>
             <TenantFormComponent onSubmit={(data) => { handleSubmit(data) }} isLoading={isLoading} />
         </Container>

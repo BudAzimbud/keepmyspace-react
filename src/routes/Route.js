@@ -9,6 +9,7 @@ import CreateTenantContainer from '../containers/tenant/CreateTenantContainer';
 import DetailTenantContainer from '../containers/tenant/DetailTenantContainer';
 import EditTenantContainer from '../containers/tenant/EditTenantContainer';
 import MainPageContainer from '../containers/MainPageContainer';
+import LogoutContainer from '../containers/LogoutContainer';
 
 
 function RouteHome() {
@@ -43,7 +44,6 @@ function RouteHome() {
                     <Route exact path='/login' element={< LoginPages />}></Route>
                     <Route exact path='/register' element={< RegisterContainer />}></Route>
                     <Route exact path='/' element={< HomeContainer />}></Route>
-                    <Route exact path='/logout' element={< HomeContainer />}></Route>
                     <Route exact path='/dashboard' element={< MainPageContainer component={<DashBoardContainer />} />}></Route>
                     <Route exact path='/tenant/create' element={< MainPageContainer component={<CreateTenantContainer />} />} ></Route>
                     <Route exact path='/tenant/details/:id' element={< MainPageContainer component={<DetailTenantContainer />} />} ></Route>

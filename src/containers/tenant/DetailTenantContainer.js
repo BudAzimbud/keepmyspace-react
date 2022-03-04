@@ -17,17 +17,11 @@ function DetailTenantContainer(props) {
   return (
     <div className='mt-4'>
       <Container>
-        <Row className='mb-3'>
-          <Col>
-            <ButtonHome />
-          </Col>
-        </Row>
-        <Row>
-          <h3>Detail Keluarga</h3>
 
-          <DetailTenantComponent />
+        <h3>Detail Keluarga</h3>
 
-        </Row>
+        <DetailTenantComponent />
+
 
       </Container>
     </div>

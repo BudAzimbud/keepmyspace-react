@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 
 const mapStateToProps = (state) => {
-    console.log(state.users)
     return {
         token: state.users.accessTokenResponse,
         error: state.users.accessTokenError

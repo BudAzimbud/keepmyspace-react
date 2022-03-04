@@ -39,6 +39,7 @@ class NavbarDashboardComponent extends Component {
                                         type="search"
                                         placeholder="Search"
                                         aria-label="Search"
+                                        className='mr-3'
                                     />
                                     <Button variant="outline-secondary">Search</Button>
                                 </Form>
@@ -46,16 +47,8 @@ class NavbarDashboardComponent extends Component {
                             <h5 className='mt-3' style={{ color: 'white' }}>{this.props.profile.fullName}</h5>
                             <Nav>
 
-                                <Dropdown>
-                                    <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">
-                                        </Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Divider />
-                                        <Dropdown.Item href="/login" onClick={this.logout}>Logout</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                                <Avatar size="50" facebook-id="invalidfacebookusername" src={this.props.profile.image.url} round={true} />
+
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
