@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Offcanvas, Button, Row, Nav } from 'react-bootstrap'
-import Navbar from 'react-bootstrap/Navbar'
+import { Offcanvas } from 'react-bootstrap'
 import './SideBarComponent.css'
+import { Link } from 'react-router-dom'
+import { FiHome, FiLogOut } from "react-icons/fi";
+
 function SidebarComponent() {
     const [show, setShow] = useState(false);
 
@@ -11,28 +13,16 @@ function SidebarComponent() {
 
     return (
         <div>
-            <Button variant="outline-light border-0" onClick={handleShow}>
+            <button className="button-toggle" onClick={handleShow}>
                 KEEP MY SPACE
-            </Button>
+            </button>
 
             <Offcanvas show={show} className="sidebar-menu" onHide={handleClose}>
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>
-                        <Navbar.Brand className="title-sidebar" >KEEP MY SPACE</Navbar.Brand>
-                    </Offcanvas.Title>
+                <Offcanvas.Header closeButton className='border'>
+                    <h5> KEEP MY SPACE</h5>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <Row>
-                        <Nav.Link href="/" className='menu'>Home</Nav.Link>
-                    </Row>
-                    <Row>
-                        <Nav.Link href="/dashboard" className='menu'>Keluarga</Nav.Link>
-                    </Row>
-                    <Row>
-                        <Nav.Link href="/logout" className='menu' onClick={() => {
-                            localStorage.removeItem('token')
-                        }}>Logout</Nav.Link>
-                    </Row>
+                <Offcanvas.Body className="menu">
+
                 </Offcanvas.Body>
             </Offcanvas>
         </div>

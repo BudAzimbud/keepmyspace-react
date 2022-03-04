@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import HeaderSidebarComponent from '../components/HeaderSidebarComponent';
+import FooterComponent from '../components/FooterComponent';
+import MenuSidebarComponent from '../components/MenuSidebarComponent';
 import NavbarDashBoardComponent from '../components/NavbarDashBoardComponent';
 import './MainPageContainer.css'
 class MainPageContainer extends Component {
@@ -8,11 +9,15 @@ class MainPageContainer extends Component {
     render() {
         return (
             <div>
-                <HeaderSidebarComponent className="sidebar" />
+                <MenuSidebarComponent />
 
-                <NavbarDashBoardComponent className="header" />
+                <div>
+                    <NavbarDashBoardComponent />
+
+                </div>
+
                 {this.props.component}
-
+                <FooterComponent />
             </div>
         );
     }

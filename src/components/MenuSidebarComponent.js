@@ -11,17 +11,21 @@ import {
 
 import { Link } from "react-router-dom";
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
+import { MdOutlineFamilyRestroom } from "react-icons/md";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
 //import sidebar css from react-pro-sidebar module and our custom css 
 import "react-pro-sidebar/dist/css/styles.css";
-import "./HeaderSidebarComponent.css";
-import { useNavigate } from "react-router-dom";
+import { HiCreditCard } from "react-icons/hi";
+import { MdChatBubble, MdOutlinePassword } from "react-icons/md";
+import { IoPerson } from "react-icons/io5";
+import { HiUserGroup } from "react-icons/hi";
+import { AiFillPhone } from "react-icons/ai";
 
 
-const HeaderSidebarComponent = () => {
+
+import "./MenuSidebarComponent.css";
+
+const MenuSidebarComponent = () => {
 
 
     //create initial menuCollapse state using useState hook
@@ -36,15 +40,12 @@ const HeaderSidebarComponent = () => {
     return (
         <>
             <div id="header">
-                {/* collapsed props to change menu size using menucollapse state */}
                 <ProSidebar collapsed={menuCollapse}>
                     <SidebarHeader>
                         <div className="logotext">
-                            {/* small and big change using menucollapse state */}
                             <p>{menuCollapse ? "KMS" : "KEEP MY SPACE"}</p>
                         </div>
                         <div className="closemenu" onClick={menuIconClick}>
-                            {/* changing menu collapse icon on click */}
                             {menuCollapse ? (
                                 <FiArrowRightCircle />
                             ) : (
@@ -62,8 +63,36 @@ const HeaderSidebarComponent = () => {
                             </Link>
 
                             <Link to={"/dashboard"}>
-                                <MenuItem icon={<FaList />}>Keluarga</MenuItem>
+                                <MenuItem icon={<MdOutlineFamilyRestroom />}>Keluarga</MenuItem>
                             </Link>
+
+                            <Link to={"/dashboard"}>
+                                <MenuItem icon={<HiCreditCard />}>Harta</MenuItem>
+                            </Link>
+
+                            <Link to={"/dashboard"}>
+                                <MenuItem icon={<MdChatBubble
+                                />}>Pesan Wasiat</MenuItem>
+                            </Link>
+
+                            <Link to={"/dashboard"}>
+                                <MenuItem icon={<IoPerson
+                                />}>Manager Akun</MenuItem>
+                            </Link>
+
+
+                            <Link to={"/dashboard"}>
+                                <MenuItem icon={<AiFillPhone
+                                />}>Kontak</MenuItem>
+                            </Link>
+
+                            <Link to={"/dashboard"}>
+                                <MenuItem icon={<HiUserGroup
+                                />}>Anggota</MenuItem>
+                            </Link>
+
+
+
 
 
                         </Menu>
@@ -73,7 +102,6 @@ const HeaderSidebarComponent = () => {
                             <MenuItem icon={<FiLogOut />} onClick={() => {
                                 localStorage.removeItem('token')
                                 window.location.href = "/login"
-
                             }}>Logout</MenuItem>
                         </Menu>
                     </SidebarFooter>
@@ -83,4 +111,4 @@ const HeaderSidebarComponent = () => {
     );
 };
 
-export default HeaderSidebarComponent;
+export default MenuSidebarComponent;

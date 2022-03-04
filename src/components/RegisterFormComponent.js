@@ -84,12 +84,18 @@ class RegisterFormComponent extends Component {
                         />
                     </Form.Group>
 
+
+
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
                         {this.props.isLoading ?
                             <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Register</span>
                             </Spinner> : <span>Register</span>}
                     </Button>
+
+                    <Form.Group className="" controlId="formBasicEmail">
+                        <p className='mt-3'>Sudah ada Akun ? <a href="/login">Login</a></p>
+                    </Form.Group>
 
                 </form>
             </div>

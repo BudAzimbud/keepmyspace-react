@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { getProfileUser } from '../actions/ActionUser';
 import Avatar from 'react-avatar';
 
+
 const mapStateToProps = (state) => {
     return {
         profile: state.users.profile,
@@ -27,10 +28,10 @@ class NavbarDashboardComponent extends Component {
 
         return (
             this.props.profile ? <div>
-                <Navbar collapseOnSelect bg="dark" expand="lg" variant="dark">
+                <Navbar collapseOnSelect className='bg-dark' expand="lg" variant="dark">
                     <Container>
                         <SidebarComponent />
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Toggle  aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav" >
                             <Nav className="me-auto">
                                 <Form className="d-flex">

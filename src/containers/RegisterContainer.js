@@ -61,11 +61,11 @@ function RegisterContainer(props) {
         <div className="register-container">
             <NavbarHomeComponent />
             <Container >
-                <h2>Join With Us</h2>
+                <h2>Mulai Bergabung </h2>
                 <div className='d-flex justify-content-end'>
-                    <h2>Keep your family</h2>
+                    <h2>Jaga Keluarga Anda </h2>
                     <hr></hr>
-                    <p>with KEEP MY SPACE</p>
+                    <p>bersama KEEP MY SPACE</p>
                 </div>
                 <div className='d-flex justify-content-end'>
                     <Col xs lg={5} >

@@ -1,15 +1,19 @@
-.title-sidebar {
-  color: rgb(0, 0, 0);
-  font-size: 25px;
+.button-toggle {
+  padding: 7px;
+  background-color: rgb(41, 40, 40);
+  color: white;
+  border: 0px;
 }
 
-.menu {
-  padding: 10px;
-  font-size: 18px;
-  color: blue;
+@media (min-width: 900px) {
+  .button-toggle {
+    display: none;
+  }
 }
 
-.menu:hover {
-  background-color: black;
-  color: rgb(170, 134, 134);
+.menu a {
+  color: grey;
+  display: block;
+  text-decoration: none;
+  margin: 10px;
 }
