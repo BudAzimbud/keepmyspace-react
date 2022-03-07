@@ -9,7 +9,7 @@ export const GET_USER_PROFILE = 'GET_USER_PROFILE'
 
 export const createUser = (data) => {
     return dispatch => {
-        httpRequest.post('auth/signup', data).then((res) => {
+        axios.post('http://localhost:8080/auth/signup', data).then((res) => {
             dispatch({
                 type: POST_CREATE_USER,
                 payload: {
@@ -49,14 +49,14 @@ export const createAccessToken = (data) => {
                 }
             })
         }).catch((err) => {
-            if (err.response.status == 401) {
+            if (err.response.status === 401) {
                 Swal.fire({
                     icon: 'error',
                     text: 'Akun tidak valid!',
                 })
             }
 
-            if (err.response.status == 403) {
+            if (err.response.status === 403) {
                 Swal.fire({
                     icon: 'error',
                     text: 'Akun belum di verifikasi check email!',

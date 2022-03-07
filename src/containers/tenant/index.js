@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { emptyTenant, listAllTenant } from '../../actions/ActionTenant'
 
-class DashBoardContainer extends Component {
+class TenantContainer extends Component {
 
     componentDidMount() {
         this.props.dispatch(listAllTenant())
@@ -16,6 +16,7 @@ class DashBoardContainer extends Component {
     render() {
         return (
             <Container>
+                <h3 className='text-secondary'>Daftar Keluarga</h3>
                 <TableSearchComponents />
             </Container>
         )
@@ -23,4 +24,4 @@ class DashBoardContainer extends Component {
 
 }
 
-export default connect()(DashBoardContainer)
+export default connect()(TenantContainer)

@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import NavbarHomeComponent from '../components/NavbarHomeComponent';
 
 const mapStateToProps = (state) => {
+
+    console.log(state.users.createUserResponse)
+
     return {
         createUserResponse: state.users.createUserResponse,
         createUserError: state.users.createUserError
@@ -55,6 +58,7 @@ function RegisterContainer(props) {
         }, 2000)
 
     }
+
 
 
     return (

@@ -27,7 +27,6 @@ import "./MenuSidebarComponent.css";
 
 const MenuSidebarComponent = () => {
 
-
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false)
 
@@ -40,6 +39,7 @@ const MenuSidebarComponent = () => {
     return (
         <>
             <div id="header">
+                {/* collapsed props to change menu size using menucollapse state */}
                 <ProSidebar collapsed={menuCollapse}>
                     <SidebarHeader>
                         <div className="logotext">
@@ -56,44 +56,55 @@ const MenuSidebarComponent = () => {
                     <SidebarContent>
                         <Menu iconShape="square">
 
-                            <Link to={"/dashboard"}>
-                                <MenuItem active={true} icon={<FiHome />} >
+                            <MenuItem active={true} icon={<FiHome />} >
+                                <Link to={"/dashboard"}>
                                     Dashboard
-                                </MenuItem>
-                            </Link>
+                                </Link>
+                            </MenuItem>
 
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<MdOutlineFamilyRestroom />}>Keluarga</MenuItem>
-                            </Link>
+                            <MenuItem icon={<MdOutlineFamilyRestroom />}>
+                                <Link to={"/tenant"}>
+                                    Keluarga
+                                </Link>
+                            </MenuItem>
 
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<HiCreditCard />}>Harta</MenuItem>
-                            </Link>
+                            <MenuItem icon={<HiCreditCard />}>
+                                <Link to={"/asset"}>
+                                    Harta
+                                </Link>
+                            </MenuItem>
 
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<MdChatBubble
-                                />}>Pesan Wasiat</MenuItem>
-                            </Link>
+                            <MenuItem icon={<MdChatBubble
+                            />}>
+                                <Link to={"/testament"}>
+                                    Pesan Wasiat
+                                </Link>
+                            </MenuItem>
 
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<IoPerson
-                                />}>Manager Akun</MenuItem>
-                            </Link>
-
-
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<AiFillPhone
-                                />}>Kontak</MenuItem>
-                            </Link>
-
-                            <Link to={"/dashboard"}>
-                                <MenuItem icon={<HiUserGroup
-                                />}>Anggota</MenuItem>
-                            </Link>
+                            <MenuItem icon={<IoPerson
+                            />}>
+                                <Link to={"/password-manager"}>
+                                    Manager Akun
+                                </Link>
+                            </MenuItem>
 
 
 
+                            <MenuItem icon={<AiFillPhone
+                            />}>
+                                <Link to={"/contact"}>
+                                    Kontak
+                                </Link>
+                            </MenuItem>
 
+
+                            <MenuItem icon={<HiUserGroup
+                            />}>
+                                <Link to={"/member"}>
+                                    Anggota
+                                </Link>
+
+                            </MenuItem>
 
                         </Menu>
                     </SidebarContent>

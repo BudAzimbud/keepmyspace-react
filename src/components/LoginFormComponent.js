@@ -63,13 +63,13 @@ class LoginFormComponent extends Component {
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
                         {this.props.isLoading ?
                             <Spinner animation="border" role="status">
-                                <span className="visually-hidden">Register</span>
-                            </Spinner> : <span>Login</span>}
+                                <span className="visually-hidden">Daftar</span>
+                            </Spinner> : <span>Masuk</span>}
                     </Button>
 
 
                     <Form.Group className="mt-5" controlId="formBasicEmail">
-                        <a href="/forget-password">Forget Password</a>
+                        <a href="/forget-password">Lupa Password ? </a>
                     </Form.Group>
 
                 </form>

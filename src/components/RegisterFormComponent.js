@@ -33,7 +33,9 @@ const renderField = ({
 
 
 class RegisterFormComponent extends Component {
+
     render() {
+
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
@@ -94,7 +96,7 @@ class RegisterFormComponent extends Component {
                     </Button>
 
                     <Form.Group className="" controlId="formBasicEmail">
-                        <p className='mt-3'>Sudah ada Akun ? <a href="/login">Login</a></p>
+                        <p className='mt-3 text-secondary'>Sudah ada Akun ? <a href="/login">Masuk</a></p>
                     </Form.Group>
 
                 </form>

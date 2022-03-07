@@ -12,8 +12,8 @@ class NavbarHomeComponent extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/feature">Features</Nav.Link>
-                            <Nav.Link href="/prices" >Pricing</Nav.Link>
+                            <Nav.Link href="/feature">Fitur</Nav.Link>
+                            <Nav.Link href="/prices" >Harga</Nav.Link>
                             <Form className="d-flex">
                                 <FormControl
                                     size="sm"
@@ -25,9 +25,9 @@ class NavbarHomeComponent extends Component {
                             </Form>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="/register"><h5>Register</h5></Nav.Link>
+                            <Nav.Link href="/register"><h5>Daftar</h5></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
-                                Login
+                                Masuk
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

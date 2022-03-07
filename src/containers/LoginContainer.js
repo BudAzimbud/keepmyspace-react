@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import LoginFormComponent from '../components/LoginFormComponent';
 import backgroundLogin from '../images/backgroundLogin.svg'
 
 import { connect } from 'react-redux'
 import { createAccessToken } from '../actions/ActionUser';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import NavbarHomeComponent from '../components/NavbarHomeComponent';
 
@@ -18,9 +18,17 @@ const mapStateToProps = (state) => {
 
 
 function LoginContainer(props) {
+
     const history = useNavigate()
 
     const [isLoading] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+          history('/tenant' , {state : true})
+        }
+    }, [])
 
 
     const handleSubmit = (data) => {
@@ -31,7 +39,7 @@ function LoginContainer(props) {
         localStorage.setItem('token', props.token)
 
         history('/dashboard', { state: true })
-       
+
     }
 
 
