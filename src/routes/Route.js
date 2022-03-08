@@ -10,12 +10,8 @@ import DetailTenantContainer from '../containers/tenant/DetailTenantContainer';
 import EditTenantContainer from '../containers/tenant/EditTenantContainer';
 import MainPageContainer from '../containers/MainPageContainer';
 import AssetContainer from '../containers/asset';
-import TableAssetComponent from '../components/TableAssetComponent';
+import TenantForm from '../containers/asset/Form';
 
-function PrivateRoute({ children }) {
-    const auth = localStorage.getItem('token')
-    return auth ? children : <Navigate to="/login" />;
-}
 
 function RouteHome() {
 
@@ -36,6 +32,7 @@ function RouteHome() {
                     <Route exact path='/tenant/details/:id' element={< MainPageContainer component={<DetailTenantContainer />} />} ></Route>
                     <Route exact path='/tenant/edit/:id' element={< MainPageContainer component={<EditTenantContainer />} />}></Route>
                     <Route exact path='/asset' element={< MainPageContainer component={<AssetContainer />} />}></Route>
+                    <Route exact path='/asset/create' element={< MainPageContainer component={<TenantForm />} />}></Route>
                 </Routes>
             </BrowserRouter>
         </div >

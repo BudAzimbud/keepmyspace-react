@@ -8,10 +8,6 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 const { SearchBar } = Search;
 
 
-const sortingHeaderStyle = {
-    backgroundColor: 'red'
-};
-
 const columns = [
 
     {

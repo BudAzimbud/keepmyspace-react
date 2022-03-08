@@ -19,16 +19,10 @@ class MainPageContainer extends Component {
     render() {
         return (
             <div>
-                <MenuSidebarComponent />
-
-                <div>
-                    <NavbarDashBoardComponent />
-
-                </div>
-
+                <MenuSidebarComponent style={{ position: 'fixed' }} />
+                <NavbarDashBoardComponent style={{ position: 'fixed' }} />
                 {this.props.component}
-                <FooterComponent />
-            </div>
+        </div>
         );
     }
 }

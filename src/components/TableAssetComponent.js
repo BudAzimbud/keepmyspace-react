@@ -83,7 +83,7 @@ function TableAssetTenantComponent(props) {
 
                                     </Col>
                                     <Col className='d-flex justify-content-end mt-4'>
-                                        <Link to={"/tenant/create"}>
+                                        <Link to={"/asset/create"}>
                                             <Button variant="danger" className="mr-3">
                                                 Tambah Warisan
                                             </Button>
