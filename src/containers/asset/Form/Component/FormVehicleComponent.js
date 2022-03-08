@@ -80,7 +80,7 @@ class FormVehiceComponent extends Component {
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
                             type="number"
-                            name="price"
+                            name="value"
                             component={renderField}
                             placeholder="Harga.."
                         />

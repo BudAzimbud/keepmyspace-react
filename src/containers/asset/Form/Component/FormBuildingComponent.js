@@ -79,7 +79,7 @@ class FormBuildingComponent extends Component {
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
                             type="number"
-                            name="price"
+                            name="value"
                             component={renderField}
                             placeholder="Harga.."
                         />
@@ -112,7 +112,7 @@ class FormBuildingComponent extends Component {
 
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
-                            name="sizeBuilding"
+                            name="detailsizeBuilding"
                             component={renderField}
                             placeholder="Luas bangunan..."
                         />

@@ -30,8 +30,8 @@ const ValidateFormAsset = (values) => {
         errors.detailsizeSoil = "Luas Bangunan harus di isi"
     }
 
-    if (!values.sizeBuilding || values.sizeBuilding === "") {
-        errors.sizeBuilding = "Luas Tanah us di isi"
+    if (!values.detailsizeBuilding || values.detailsizeBuilding === "") {
+        errors.detailsizeBuilding = "Luas Tanah us di isi"
     }
 
     if (!values.detailpaid || values.detailpaid === "Pilih Pelunasan") {

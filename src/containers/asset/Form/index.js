@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Form } from 'react-bootstrap'
 import FormVehicleComponent from './Component/FormVehicleComponent'
 import FormBuildingComponent from './Component/FormBuildingComponent'
-    
+import { createAsset } from '../../../actions/ActionAsset'
 const mapStateProps = (state) => {
     return {
 
@@ -36,12 +36,28 @@ function FormAsset(props) {
                 delete data[key]
             }
         })
+        const payload = {
+            detail: {
+                "hah": "hah"
+            },
+            category: selectCategory,
+            ...data,
 
-        console.log({
-            detail ,...data
-        })
-        // setIsLoading(true)
-        // history('/dashboard', { state: true })
+        }
+
+
+        console.log(data.assetName)
+
+
+        props.dispatch(createAsset({
+            "assetName": data.assetName,
+            "value": parseInt(data.value),
+            "note": data.note,
+            "category": selectCategory,
+            detail
+        }))
+        setIsLoading(true)
+        history('/asset', { state: true })
     }
 
 
