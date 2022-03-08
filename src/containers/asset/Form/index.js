@@ -5,13 +5,14 @@ import { connect } from 'react-redux'
 import { Form } from 'react-bootstrap'
 import FormVehicleComponent from './Component/FormVehicleComponent'
 import FormBuildingComponent from './Component/FormBuildingComponent'
+    
 const mapStateProps = (state) => {
     return {
 
     }
 }
 
-function FormTenant(props) {
+function FormAsset(props) {
 
     const history = useNavigate()
 
@@ -24,8 +25,22 @@ function FormTenant(props) {
     }, [selectCategory])
 
     const handleSubmit = (data) => {
-        console.log(data)
-        setIsLoading(true)
+
+        const keyInput = Object.keys(data)
+
+        let detail = {}
+
+        keyInput.forEach((key) => {
+            if (key.includes("detail")) {
+                detail[key] = data[key]
+                delete data[key]
+            }
+        })
+
+        console.log({
+            detail ,...data
+        })
+        // setIsLoading(true)
         // history('/dashboard', { state: true })
     }
 
@@ -61,4 +76,4 @@ function FormTenant(props) {
     )
 }
 
-export default connect(mapStateProps, null)(FormTenant)
+export default connect(mapStateProps, null)(FormAsset)

@@ -17,25 +17,25 @@ const ValidateFormAsset = (values) => {
         errors.note = "Catatan harus di isi"
     }
 
-    if (!values.address || values.address === "") {
-        errors.address = "Alamat harus di Isi"
+    if (!values.detailaddress || values.detailaddress === "") {
+        errors.addredetailaddressss = "Alamat harus di Isi"
     }
 
-    if (!values.certification || values.certification === "") {
-        errors.certification = "Nomer Sertifikat harus di isi"
+    if (!values.detailcertification || values.detailcertification === "") {
+        errors.detailcertification = "Nomer Sertifikat harus di isi"
     }
 
+
+    if (!values.detailsizeSoil || values.detailsizeSoil === "") {
+        errors.detailsizeSoil = "Luas Bangunan harus di isi"
+    }
 
     if (!values.sizeBuilding || values.sizeBuilding === "") {
-        errors.sizeBuilding = "Luas Bangunan harus di isi"
+        errors.sizeBuilding = "Luas Tanah us di isi"
     }
 
-    if (!values.sizeSoil || values.sizeSoil === "") {
-        errors.sizeSoil = "Luas Tanah us di isi"
-    }
-
-    if (!values.paid || values.paid === "Pilih Pelunasan") {
-        values.paid = "Pilih Pelunasan"
+    if (!values.detailpaid || values.detailpaid === "Pilih Pelunasan") {
+        values.detailpaid = "Pilih Pelunasan"
     }
 
 

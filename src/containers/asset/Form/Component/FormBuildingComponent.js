@@ -96,7 +96,7 @@ class FormBuildingComponent extends Component {
 
                     <Form.Group >
                         <Field
-                            name="certification"
+                            name="detailcertification"
                             component={renderField}
                             placeholder="Nomor Sertifikat Tanah"
                         />
@@ -104,7 +104,7 @@ class FormBuildingComponent extends Component {
 
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
-                            name="sizeSoil"
+                            name="detailsizeSoil"
                             component={renderField}
                             placeholder="Luas Tanah..."
                         />
@@ -121,7 +121,7 @@ class FormBuildingComponent extends Component {
                     <Form.Group >
                         <Field
                             as="textarea"
-                            name="address"
+                            name="detailaddress"
                             component={renderField}
                             placeholder="Alamat..."
                         />
@@ -129,7 +129,7 @@ class FormBuildingComponent extends Component {
 
                     <Form.Group >
                         <Field
-                            name="paid"
+                            name="detailpaid"
                             component={renderSelect}
                             options={
                                 ["lunas", "belum lunas"]

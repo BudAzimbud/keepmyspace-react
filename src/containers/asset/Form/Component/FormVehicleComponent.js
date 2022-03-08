@@ -67,6 +67,7 @@ class FormVehiceComponent extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
+                    
                     <Form.Group controlId="formBasicEmail">
                         <Field
                             type="text"
@@ -94,10 +95,6 @@ class FormVehiceComponent extends Component {
                         />
                     </Form.Group>
 
-
-                    
-                  
-
                     <Form.Group controlId="formBasicEmail">
                         <Field
                             type="text"
@@ -106,8 +103,6 @@ class FormVehiceComponent extends Component {
                             placeholder="STNK..."
                         />
                     </Form.Group>
-
-
 
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
                         {this.props.isLoading ?
