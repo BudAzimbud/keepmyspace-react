@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 }
 
 function DetailBuildingComponent(props) {
-    
+
     return (
         <Container>
             {
@@ -32,6 +32,26 @@ function DetailBuildingComponent(props) {
                             <tr>
                                 <td>Catatan</td>
                                 <td>{props.asset.note}</td>
+                            </tr>
+                            <tr>
+                                <td>Nomer Sertifikat</td>
+                                <td>{props.asset.detail.detailcertification}</td>
+                            </tr>
+                            <tr>
+                                <td>Luas tanah</td>
+                                <td>{props.asset.detail.detailsizeSoil}</td>
+                            </tr>
+                            <tr>
+                                <td>Luas Bangunan</td>
+                                <td>{props.asset.detail.detailsizeBuilding}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>{props.asset.detail.detailaddress}</td>
+                            </tr>
+                            <tr>
+                                <td>Pembayaran</td>
+                                <td>{props.asset.detail.detailpaid}</td>
                             </tr>
                         </tbody>
                     </Table>

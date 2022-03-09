@@ -48,6 +48,7 @@ const renderSelect = ({
         </Col>
         <Col md="12">
             <Form.Select aria-label="Default select example" onChange={input.onChange}>
+                <option></option>
                 {options.map((option) => (
                     <option value={option}>{option}</option>
                 ))}
@@ -135,6 +136,7 @@ class FormBuildingComponent extends Component {
                                 ["lunas", "belum lunas"]
                             }
                             title="Pelunasan"
+                            
                         />
                     </Form.Group>
 

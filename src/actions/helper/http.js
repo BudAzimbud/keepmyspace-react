@@ -15,6 +15,7 @@ httpRequest.interceptors.response.use(response => response,
                 localStorage.removeItem('token')
                 return error
             default:
+                alert('error server internal')
                 return error
         }
     }

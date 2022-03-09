@@ -3,8 +3,8 @@ import { Container } from 'react-bootstrap'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form } from 'react-bootstrap'
-import FormVehicleComponent from './Component/FormVehicleComponent'
-import FormBuildingComponent from './Component/FormBuildingComponent'
+import FormVehicleComponent from './Components/FormVehicleComponent'
+import FormBuildingComponent from './Components/FormBuildingComponent'
 import { createAsset } from '../../../actions/ActionAsset'
 const mapStateProps = (state) => {
     return {
@@ -45,7 +45,7 @@ function FormAsset(props) {
             detail
         }))
         setIsLoading(true)
-        return (<Navigate to={"/asset"} />)
+        history('/asset' ,{useState : true})
     }
 
 

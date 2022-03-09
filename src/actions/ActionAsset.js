@@ -10,7 +10,7 @@ export const listAllAsset = (data) => {
         httpRequest.get('assets/', {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token'),
-                tenantid: '621edb31c4cf8d544c9ab54a'
+                tenantid: '6228489b88ca3666f51c365a'
             }
         }
         ).then((res) => {
@@ -43,7 +43,7 @@ export const createAsset = (data) => {
         httpRequest.post('assets/', data, {
             headers: {
                     Authorization: "Bearer " + localStorage.getItem('token'),
-                    tenantid: '621edb31c4cf8d544c9ab54a'
+                    tenantid: '6228489b88ca3666f51c365a'
             }
         }
         ).then((res) => {
@@ -76,7 +76,7 @@ export const getAsset = (id) => {
         httpRequest.get('assets/'+id, {
             headers: {
                     Authorization: "Bearer " + localStorage.getItem('token'),
-                    tenantid: '621edb31c4cf8d544c9ab54a'
+                    tenantid: '6228489b88ca3666f51c365a'
             }
         }
         ).then((res) => {
@@ -110,7 +110,6 @@ export const emptyAsset = () => {
                 data: false,
                 errorMessage: false
             }
-
         })
     }
 }
