@@ -6,6 +6,7 @@ import { emptyAsset, listAllAsset } from '../../actions/ActionAsset'
 
 const mapStateToProps = (state) => {
     return {
+        createAssetResponse: state.assets.createAssetResponse,
         deleteAssetResponse: state.assets.deleteAssetResponse
     }
 }
@@ -22,10 +23,12 @@ class AssetContainer extends React.Component {
         if (this.props.deleteAssetResponse) {
             this.props.dispatch(listAllAsset())
         }
+        if (this.props.createAssetResponse) {
+            this.props.dispatch(listAllAsset())
+        }
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <Container>
