@@ -9,8 +9,8 @@ const ValidateFormAsset = (values) => {
         errors.assetName = "Nama Harta harus di isi"
     }
 
-    if (!values.price || values.price === "") {
-        errors.price = "Harga harus di isi"
+    if (!values.value || values.value === "") {
+        errors.value = "Harga harus di isi"
     }
 
     if (!values.note || values.note === "") {
@@ -31,13 +31,26 @@ const ValidateFormAsset = (values) => {
     }
 
     if (!values.detailsizeBuilding || values.detailsizeBuilding === "") {
-        errors.detailsizeBuilding = "Luas Tanah us di isi"
+        errors.detailsizeBuilding = "Luas Tanah harus di isi"
     }
 
     if (!values.detailpaid || values.detailpaid === "Pilih Pelunasan") {
-        values.detailpaid = "Pilih Pelunasan"
-    }
+        errors.detailpaid = "Pilih Pelunasan"
+    } 
 
+
+    if (!values.detailbrand || values.detailbrand === "") {
+        errors.detailbrand = "Merek harus di isi"
+    } 
+    if (!values.detailbrand || values.detailbrand === "") {
+        errors.detailbrand = "Merek harus di isi"
+    } 
+
+    if (!values.numbermachine || values.numbermachine === "") {
+        errors.numbermachine = "Nomer Mesin harus di isi"
+    } 
+  
+  
 
 
     return errors
