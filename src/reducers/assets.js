@@ -1,12 +1,14 @@
-import { GET_ALL_ASSET, GET_ASSET, POST_CREATE_ASSET } from "../actions/ActionAsset"
+import { DELETE_ASSET, GET_ALL_ASSET, GET_ASSET, POST_CREATE_ASSET } from "../actions/ActionAsset"
 
 const initialState = {
     listAllAssetResponse: false,
     listAllAssetError: false,
-    createAssetResponse : false,
-    createAssetError : false,
-    getAssetResponse : false,
-    getAssetError : false,
+    createAssetResponse: false,
+    createAssetError: false,
+    getAssetResponse: false,
+    getAssetError: false,
+    deleteAssetResponse: false,
+    deleteAsserError: false,
 }
 
 function assets(state = initialState, action) {
@@ -21,15 +23,21 @@ function assets(state = initialState, action) {
         case POST_CREATE_ASSET:
             return {
                 ...state,
-                createAssetResponse : action.payload.data,
-                createAssetError : action.payload
+                createAssetResponse: action.payload.data,
+                createAssetError: action.payload
             }
-        case GET_ASSET :
+        case GET_ASSET:
             return {
                 ...state,
-                getAssetResponse : action.payload.data,
-                getAssetError : action.payload
-                
+                getAssetResponse: action.payload.data,
+                getAssetError: action.payload
+
+            }
+        case DELETE_ASSET:
+            return {
+                ...state,
+                deleteAssetResponse: action.payload.data,
+                deleteAsserError: action.payload
             }
         default:
             return state

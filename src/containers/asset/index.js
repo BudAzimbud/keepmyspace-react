@@ -4,6 +4,12 @@ import TableAssetComponent from '../../components/TableAssetComponent'
 import { connect } from 'react-redux'
 import { emptyAsset, listAllAsset } from '../../actions/ActionAsset'
 
+const mapStateToProps = (state) => {
+    return {
+        deleteAssetResponse: state.assets.deleteAssetResponse
+    }
+}
+
 class AssetContainer extends React.Component {
 
     componentDidMount() {
@@ -11,7 +17,15 @@ class AssetContainer extends React.Component {
         this.props.dispatch(emptyAsset())
     }
 
+
+    componentDidUpdate() {
+        if (this.props.deleteAssetResponse) {
+            this.props.dispatch(listAllAsset())
+        }
+    }
+
     render() {
+        console.log(this.props)
         return (
             <div>
                 <Container>
@@ -24,4 +38,4 @@ class AssetContainer extends React.Component {
     }
 }
 
-export default connect()(AssetContainer)
+export default connect(mapStateToProps, null)(AssetContainer)

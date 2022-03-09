@@ -3,6 +3,8 @@ import httpRequest from "./helper/http"
 export const GET_ALL_ASSET = 'GET_ALL_ASSET'
 export const POST_CREATE_ASSET = 'POST_CREATE_ASSET'
 export const GET_ASSET = 'GET_ASSET'
+export const DELETE_ASSET = 'DELETE_ASSET'
+
 
 
 export const listAllAsset = (data) => {
@@ -128,7 +130,7 @@ export const deleteAsset = (id) => {
         }
         ).then((res) => {
             dispatch({
-                type: GET_ASSET,
+                type: DELETE_ASSET,
                 payload: {
                     data: res.data,
                     errorMessage: false,
@@ -137,7 +139,7 @@ export const deleteAsset = (id) => {
             })
         }).catch((err) => {
             dispatch({
-                type: GET_ASSET,
+                type: DELETE_ASSET,
                 payload: {
                     data: false,
                     errorMessage: err.message,
