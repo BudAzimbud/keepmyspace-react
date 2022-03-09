@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Table } from 'react-bootstrap'
+import { Container, Table } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 const mapStateProps = (state) => {

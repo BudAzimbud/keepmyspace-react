@@ -2,6 +2,7 @@ import axios from "axios"
 import httpRequest from "./helper/http"
 export const GET_ALL_ASSET = 'GET_ALL_ASSET'
 export const POST_CREATE_ASSET = 'POST_CREATE_ASSET'
+export const GET_ASSET = 'GET_ASSET'
 
 
 export const listAllAsset = (data) => {
@@ -67,5 +68,41 @@ export const createAsset = (data) => {
         })
     }
 }
+
+
+
+export const getAsset = (id) => {
+    return dispatch => {
+        httpRequest.get('assets/'+id, {
+            headers: {
+                    Authorization: "Bearer " + localStorage.getItem('token'),
+                    tenantid: '621edb31c4cf8d544c9ab54a'
+            }
+        }
+        ).then((res) => {
+            dispatch({
+                type: GET_ASSET,
+                payload: {
+                    data: res.data,
+                    errorMessage: false,
+                }
+
+            })
+        }).catch((err) => {
+            dispatch({
+                type: GET_ASSET,
+                payload: {
+                    data: false,
+                    errorMessage: err.message,
+                    statusCode: err.response.status
+                }
+
+            })
+        })
+    }
+}
+
+
+
 
 

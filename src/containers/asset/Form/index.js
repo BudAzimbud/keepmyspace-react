@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form } from 'react-bootstrap'
 import FormVehicleComponent from './Component/FormVehicleComponent'
@@ -36,26 +36,16 @@ function FormAsset(props) {
                 delete data[key]
             }
         })
-        const payload = {
-            detail: {
-                "hah": "hah"
-            },
-            category: selectCategory,
-            ...data,
 
-        }
-
-        console.log(payload)
-
-        props.dispatch(createAsset({
-            "assetName": data.assetName,
-            "value": parseInt(data.value),
-            "note": data.note,
-            "category": selectCategory,
-            detail
-        }))
-        setIsLoading(true)
-        history('/asset', { state: true })
+        // props.dispatch(createAsset({
+        //     "assetName": data.assetName,
+        //     "value": parseInt(data.value),
+        //     "note": data.note,
+        //     "category": selectCategory,
+        //     detail
+        // }))
+        // setIsLoading(true)
+        return (<Navigate to={"/asset"} />)
     }
 
 

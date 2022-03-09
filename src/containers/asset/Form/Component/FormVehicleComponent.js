@@ -48,6 +48,7 @@ const renderSelect = ({
         </Col>
         <Col md="12">
             <Form.Select aria-label="Default select example" onChange={input.onChange}>
+                <option></option>
                 {options.map((option) => (
                     <option value={option}>{option}</option>
                 ))}
@@ -67,7 +68,7 @@ class FormVehiceComponent extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
-                    
+
                     <Form.Group controlId="formBasicEmail">
                         <Field
                             type="text"
@@ -99,7 +100,8 @@ class FormVehiceComponent extends Component {
                         <Field
                             name="detailkindvehicle"
                             component={renderSelect}
-                            options={["Motor" ,"Mobil"]}
+                            options={["Motor", "Mobil"]}
+                            title={"Jenis Kendaraan"}
                         />
                     </Form.Group>
 
@@ -122,17 +124,18 @@ class FormVehiceComponent extends Component {
 
                     <Form.Group className="" controlId="formBasicEmail">
                         <Field
-                            name="numbermachine"
+                            name="detailnumbermachine"
                             component={renderField}
                             placeholder="Nomor Mesin..."
                         />
                     </Form.Group>
-                    
+
                     <Form.Group controlId="formBasicEmail">
                         <Field
                             name="detailpaid"
                             component={renderSelect}
-                            options={["lunas" ,"belum lunas"]}
+                            options={["lunas", "belum lunas"]}
+                            title={"Pembayaran"}
                         />
                     </Form.Group>
 

@@ -41,6 +41,7 @@ function tenants(state = initialState, action) {
                 editTenantError: action.payload
 
             }
+            
 
 
         default:

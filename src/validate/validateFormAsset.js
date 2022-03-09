@@ -34,24 +34,23 @@ const ValidateFormAsset = (values) => {
         errors.detailsizeBuilding = "Luas Tanah harus di isi"
     }
 
-    if (!values.detailpaid || values.detailpaid === "Pilih Pelunasan") {
-        errors.detailpaid = "Pilih Pelunasan"
-    } 
-
 
     if (!values.detailbrand || values.detailbrand === "") {
         errors.detailbrand = "Merek harus di isi"
-    } 
-    if (!values.detailbrand || values.detailbrand === "") {
-        errors.detailbrand = "Merek harus di isi"
-    } 
+    }
+    if (!values.detailnumberplat || values.detailnumberplat === "") {
+        errors.detailnumberplat = "Merek harus di isi"
+    }
 
-    if (!values.numbermachine || values.numbermachine === "") {
-        errors.numbermachine = "Nomer Mesin harus di isi"
-    } 
-  
-  
+    if (!values.detailnumbermachine || values.detailnumbermachine === "") {
+        errors.detailnumbermachine = "Nomer Mesin harus di isi"
+    }
 
+    console.log(!values.detailpaid)
+
+    if (!values.detailpaid || values.detailpaid === "") {
+        errors.detailpaid = "Silahkan pilih"
+    }
 
     return errors
 };

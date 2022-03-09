@@ -29,13 +29,13 @@ const columns = [
             return (
                 <div className=''>
 
-                    <Link to={"/tenant/edit/" + row.id}>
+                    <Link to={"/asset/edit/" + row.id}>
                         <Button variant="outline-success" className="mr-2" size="sm">
                             Ubah
                         </Button>
                     </Link>
 
-                    <Link to={"/tenant/details/" + row.id}>
+                    <Link to={"/asset/detail/" + row.id}>
                         <Button variant="outline-primary" className="mr-2" size="sm">
                             Detail
                         </Button>

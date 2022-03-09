@@ -11,6 +11,7 @@ import EditTenantContainer from '../containers/tenant/EditTenantContainer';
 import MainPageContainer from '../containers/MainPageContainer';
 import AssetContainer from '../containers/asset';
 import TenantForm from '../containers/asset/Form';
+import DetailAssetContainer from '../containers/asset/Form/DetailAssetContainer';
 
 
 function RouteHome() {
@@ -33,6 +34,8 @@ function RouteHome() {
                     <Route exact path='/tenant/edit/:id' element={< MainPageContainer component={<EditTenantContainer />} />}></Route>
                     <Route exact path='/asset' element={< MainPageContainer component={<AssetContainer />} />}></Route>
                     <Route exact path='/asset/create' element={< MainPageContainer component={<TenantForm />} />}></Route>
+                    <Route exact path='/asset/detail/:id' element={< MainPageContainer component={<DetailAssetContainer />} />}></Route>
+
                 </Routes>
             </BrowserRouter>
         </div >
