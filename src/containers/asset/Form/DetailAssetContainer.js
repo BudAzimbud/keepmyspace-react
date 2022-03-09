@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getAsset } from '../../../actions/ActionAsset'
@@ -7,6 +7,11 @@ import DetailBuildingComponent from './Component/DetailBuildingComponent'
 import DetailVehicleComponent from './Component/DetailVehicleComponent'
 
 
+const mapStateProps = (state) => {
+    return {
+        asset: state.assets.getAssetResponse
+    }
+}
 
 function DetailAssetContainer(props) {
 
@@ -19,10 +24,18 @@ function DetailAssetContainer(props) {
     return (
         <Container>
             <h3 className='mt-3 text-secondary'>Detail Harta Warisan</h3>
-            <DetailBuildingComponent />
-            <DetailVehicleComponent />
+            {
+                props.asset ? (
+                    <React.Fragment>
+                        <DetailBuildingComponent />
+                        <DetailVehicleComponent />
+                    </React.Fragment>) : <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            }
+
         </Container>
     )
 }
 
-export default connect()(DetailAssetContainer)
+export default connect(mapStateProps, null)(DetailAssetContainer)

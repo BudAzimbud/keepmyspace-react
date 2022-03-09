@@ -9,11 +9,11 @@ const mapStateToProps = (state) => {
 }
 
 function DetailBuildingComponent(props) {
-    console.log(props.asset.category)
+    
     return (
         <Container>
             {
-                props.asset.category === "Bangungan" ?
+                props.asset.category === "Bangunan" ?
                     <Table >
                         <thead></thead>
                         <tbody>

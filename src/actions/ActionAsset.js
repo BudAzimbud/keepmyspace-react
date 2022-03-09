@@ -102,6 +102,18 @@ export const getAsset = (id) => {
     }
 }
 
+export const emptyAsset = () => {
+    return dispatch => {
+        dispatch({
+            type: GET_ASSET,
+            payload: {
+                data: false,
+                errorMessage: false
+            }
+
+        })
+    }
+}
 
 
 

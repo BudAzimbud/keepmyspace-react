@@ -37,14 +37,14 @@ function FormAsset(props) {
             }
         })
 
-        // props.dispatch(createAsset({
-        //     "assetName": data.assetName,
-        //     "value": parseInt(data.value),
-        //     "note": data.note,
-        //     "category": selectCategory,
-        //     detail
-        // }))
-        // setIsLoading(true)
+        props.dispatch(createAsset({
+            "assetName": data.assetName,
+            "value": parseInt(data.value),
+            "note": data.note,
+            "category": selectCategory,
+            detail
+        }))
+        setIsLoading(true)
         return (<Navigate to={"/asset"} />)
     }
 

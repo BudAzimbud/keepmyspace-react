@@ -2,12 +2,13 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import TableAssetComponent from '../../components/TableAssetComponent'
 import { connect } from 'react-redux'
-import { listAllAsset } from '../../actions/ActionAsset'
+import { emptyAsset, listAllAsset } from '../../actions/ActionAsset'
 
 class AssetContainer extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(listAllAsset())
+        this.props.dispatch(emptyAsset())
     }
 
     render() {

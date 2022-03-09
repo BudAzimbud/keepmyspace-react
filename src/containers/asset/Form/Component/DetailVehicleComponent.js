@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 }
 
 function DetailVehicleComponent(props) {
-    console.log(props.asset.detail)
     return (
         <Container>
             {
