@@ -45,9 +45,7 @@ function FormAsset(props) {
 
         }
 
-
-        console.log(data.assetName)
-
+        console.log(payload)
 
         props.dispatch(createAsset({
             "assetName": data.assetName,

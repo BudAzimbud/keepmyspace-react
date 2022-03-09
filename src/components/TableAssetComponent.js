@@ -62,7 +62,6 @@ const mapStateToProps = (state) => {
 
 function TableAssetTenantComponent(props) {
 
-    console.log(props.listAsset.data)
 
     return (
         <Container >

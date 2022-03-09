@@ -10,7 +10,6 @@ import NavbarHomeComponent from '../components/NavbarHomeComponent';
 
 const mapStateToProps = (state) => {
 
-    console.log(state.users.createUserResponse)
 
     return {
         createUserResponse: state.users.createUserResponse,

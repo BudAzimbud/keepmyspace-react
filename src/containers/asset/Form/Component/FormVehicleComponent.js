@@ -97,10 +97,42 @@ class FormVehiceComponent extends Component {
 
                     <Form.Group controlId="formBasicEmail">
                         <Field
-                            type="text"
-                            name="stnk"
+                            name="detailkindvehicle"
+                            component={renderSelect}
+                            options={["Motor" ,"Mobil"]}
+                        />
+                    </Form.Group>
+
+
+                    <Form.Group className="" controlId="formBasicEmail">
+                        <Field
+                            name="detailbrand"
                             component={renderField}
-                            placeholder="STNK..."
+                            placeholder="Merek Kendaraan..."
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="" controlId="formBasicEmail">
+                        <Field
+                            name="detailnumberplat"
+                            component={renderField}
+                            placeholder="Plat Nomer..."
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="" controlId="formBasicEmail">
+                        <Field
+                            name="numbermachine"
+                            component={renderField}
+                            placeholder="Nomor Mesin..."
+                        />
+                    </Form.Group>
+                    
+                    <Form.Group controlId="formBasicEmail">
+                        <Field
+                            name="detailpaid"
+                            component={renderSelect}
+                            options={["lunas" ,"belum lunas"]}
                         />
                     </Form.Group>
 
