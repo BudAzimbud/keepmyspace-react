@@ -42,8 +42,8 @@ export const createAsset = (data) => {
     return dispatch => {
         httpRequest.post('assets/', data, {
             headers: {
-                    Authorization: "Bearer " + localStorage.getItem('token'),
-                    tenantid: '6228489b88ca3666f51c365a'
+                Authorization: "Bearer " + localStorage.getItem('token'),
+                tenantid: '6228489b88ca3666f51c365a'
             }
         }
         ).then((res) => {
@@ -73,10 +73,10 @@ export const createAsset = (data) => {
 
 export const getAsset = (id) => {
     return dispatch => {
-        httpRequest.get('assets/'+id, {
+        httpRequest.get('assets/' + id, {
             headers: {
-                    Authorization: "Bearer " + localStorage.getItem('token'),
-                    tenantid: '6228489b88ca3666f51c365a'
+                Authorization: "Bearer " + localStorage.getItem('token'),
+                tenantid: '6228489b88ca3666f51c365a'
             }
         }
         ).then((res) => {
@@ -117,3 +117,34 @@ export const emptyAsset = () => {
 
 
 
+
+export const deleteAsset = (id) => {
+    return (dispatch) => {
+        httpRequest.delete('assets/' + id, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem('token'),
+                tenantid: '6228489b88ca3666f51c365a'
+            }
+        }
+        ).then((res) => {
+            dispatch({
+                type: GET_ASSET,
+                payload: {
+                    data: res.data,
+                    errorMessage: false,
+                }
+
+            })
+        }).catch((err) => {
+            dispatch({
+                type: GET_ASSET,
+                payload: {
+                    data: false,
+                    errorMessage: err.message,
+                    statusCode: err.response.status
+                }
+
+            })
+        })
+    }
+}

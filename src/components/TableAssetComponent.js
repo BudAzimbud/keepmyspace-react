@@ -5,47 +5,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import paginationFactory from "react-bootstrap-table2-paginator";
+import { deleteAsset } from '../actions/ActionAsset';
 const { SearchBar } = Search;
 
-
-
-const columns = [
-
-    {
-        dataField: "assetName",
-        text: "Nama harta",
-        sort: true,
-    },
-    {
-        dataField: "category",
-        text: "Kategori",
-        sort: true,
-    },
-
-    {
-        dataField: "link",
-        text: "Action",
-        formatter: (rowContent, row) => {
-            return (
-                <div className=''>
-
-                    <Link to={"/asset/edit/" + row.id}>
-                        <Button variant="outline-success" className="mr-2" size="sm">
-                            Ubah
-                        </Button>
-                    </Link>
-
-                    <Link to={"/asset/detail/" + row.id}>
-                        <Button variant="outline-primary" className="mr-2" size="sm">
-                            Detail
-                        </Button>
-                    </Link>
-
-                </div>
-            );
-        },
-    },
-];
 
 const rowEvents = {
     onClick: (e, row, rowIndex) => {
@@ -61,6 +23,55 @@ const mapStateToProps = (state) => {
 
 
 function TableAssetTenantComponent(props) {
+
+
+
+    const columns = [
+
+        {
+            dataField: "assetName",
+            text: "Nama harta",
+            sort: true,
+        },
+        {
+            dataField: "category",
+            text: "Kategori",
+            sort: true,
+        },
+
+        {
+            dataField: "link",
+            text: "Action",
+            formatter: (rowContent, row) => {
+                return (
+                    <div className=''>
+
+                        <Link to={"/asset/edit/" + row.id}>
+                            <Button variant="outline-success" className="mr-2" size="sm">
+                                Ubah
+                            </Button>
+                        </Link>
+
+                        <Link to={"/asset/detail/" + row.id}>
+                            <Button variant="outline-primary" className="mr-2" size="sm">
+                                Detail
+                            </Button>
+                        </Link>
+
+
+                        <Button variant="outline-danger" className="mr-2" size="sm"
+                            onClick={() => {
+                                props.dispatch(deleteAsset(row.id))
+                            }}
+                        >
+                            Hapus
+                        </Button>
+
+                    </div>
+                );
+            },
+        },
+    ];
 
 
     return (
