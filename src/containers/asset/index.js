@@ -20,6 +20,8 @@ class AssetContainer extends React.Component {
 
 
     componentDidUpdate() {
+        this.props.dispatch(emptyAsset())
+
         if (this.props.deleteAssetResponse) {
             this.props.dispatch(listAllAsset())
         }
@@ -37,7 +39,6 @@ class AssetContainer extends React.Component {
                 </Container>
             </div>
         )
-
     }
 }
 

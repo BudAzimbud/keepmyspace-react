@@ -1,10 +1,9 @@
-import axios from "axios"
 import httpRequest from "./helper/http"
 export const GET_ALL_ASSET = 'GET_ALL_ASSET'
 export const POST_CREATE_ASSET = 'POST_CREATE_ASSET'
 export const GET_ASSET = 'GET_ASSET'
 export const DELETE_ASSET = 'DELETE_ASSET'
-
+export const EDIT_ASSET = 'EDIT_ASSET'
 
 
 export const listAllAsset = (data) => {
@@ -140,6 +139,39 @@ export const deleteAsset = (id) => {
         }).catch((err) => {
             dispatch({
                 type: DELETE_ASSET,
+                payload: {
+                    data: false,
+                    errorMessage: err.message,
+                    statusCode: err.response.status
+                }
+
+            })
+        })
+    }
+}
+
+
+
+export const editAsset = (id , data) => {
+    return dispatch => {
+        httpRequest.put('assets/'+id, data, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem('token'),
+                tenantid: '6228489b88ca3666f51c365a'
+            }
+        }
+        ).then((res) => {
+            dispatch({
+                type: EDIT_ASSET,
+                payload: {
+                    data: res.data,
+                    errorMessage: false,
+                }
+
+            })
+        }).catch((err) => {
+            dispatch({
+                type: EDIT_ASSET,
                 payload: {
                     data: false,
                     errorMessage: err.message,

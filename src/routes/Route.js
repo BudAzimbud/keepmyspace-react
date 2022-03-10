@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes,  Route, Navigate } from "react-router-dom";
 import NavbarContainer from '../containers/NavbarContainer';
 import LoginPages from '../containers/LoginContainer'
 import RegisterContainer from '../containers/RegisterContainer';
@@ -10,11 +10,12 @@ import DetailTenantContainer from '../containers/tenant/DetailTenantContainer';
 import EditTenantContainer from '../containers/tenant/EditTenantContainer';
 import MainPageContainer from '../containers/MainPageContainer';
 import AssetContainer from '../containers/asset';
-import TenantForm from '../containers/asset/Form';
+import AssetForm from '../containers/asset/Form/Create';
 import DetailAssetContainer from '../containers/asset/Detail';
+import EditAssetContainer from '../containers/asset/Form/Edit';
 
 
-function RouteHome() {
+function RouteApp() {
 
     return (
         <div>
@@ -32,8 +33,9 @@ function RouteHome() {
                     <Route exact path='/tenant/details/:id' element={< MainPageContainer component={<DetailTenantContainer />} />} ></Route>
                     <Route exact path='/tenant/edit/:id' element={< MainPageContainer component={<EditTenantContainer />} />}></Route>
                     <Route exact path='/asset' element={< MainPageContainer component={<AssetContainer />} />}></Route>
-                    <Route exact path='/asset/create' element={< MainPageContainer component={<TenantForm />} />}></Route>
+                    <Route exact path='/asset/create' element={< MainPageContainer component={<AssetForm />} />}></Route>
                     <Route exact path='/asset/detail/:id' element={< MainPageContainer component={<DetailAssetContainer />} />}></Route>
+                    <Route exact path='/asset/edit/:id' element={< MainPageContainer component={<EditAssetContainer />} />}></Route>
                 </Routes>
             </BrowserRouter>
         </div >
@@ -42,4 +44,4 @@ function RouteHome() {
 
 
 
-export default RouteHome
+export default RouteApp

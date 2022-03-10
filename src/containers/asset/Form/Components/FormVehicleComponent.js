@@ -48,7 +48,6 @@ const renderSelect = ({
         </Col>
         <Col md="12">
             <Form.Select aria-label="Default select example" onChange={input.onChange}>
-                <option></option>
                 {options.map((option) => (
                     <option value={option}>{option}</option>
                 ))}
@@ -62,7 +61,12 @@ const renderSelect = ({
 )
 
 
+
+
+
+
 class FormVehiceComponent extends Component {
+
 
     render() {
         return (

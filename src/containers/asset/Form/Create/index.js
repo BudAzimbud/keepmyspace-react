@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form } from 'react-bootstrap'
-import FormVehicleComponent from './Components/FormVehicleComponent'
-import FormBuildingComponent from './Components/FormBuildingComponent'
-import { createAsset } from '../../../actions/ActionAsset'
-const mapStateProps = (state) => {
-    return {
+import FormVehicleComponent from '../Components/FormVehicleComponent'
+import FormBuildingComponent from '../Components/FormBuildingComponent'
+import { createAsset } from '../../../../actions/ActionAsset'
 
-    }
-}
 
 function FormAsset(props) {
 
@@ -45,7 +41,7 @@ function FormAsset(props) {
             detail
         }))
         setIsLoading(true)
-        history('/asset' ,{useState : true})
+        history('/asset', { useState: true })
     }
 
 
@@ -80,4 +76,4 @@ function FormAsset(props) {
     )
 }
 
-export default connect(mapStateProps, null)(FormAsset)
+export default connect()(FormAsset)

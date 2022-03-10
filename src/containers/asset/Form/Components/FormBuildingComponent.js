@@ -36,6 +36,7 @@ const renderSelect = ({
     input,
     label,
     options,
+    selectedOption,
     readOnly,
     title,
     meta: { touched, error, warning },
@@ -47,10 +48,12 @@ const renderSelect = ({
             </h1>
         </Col>
         <Col md="12">
-            <Form.Select aria-label="Default select example" onChange={input.onChange}>
-                <option></option>
-                {options.map((option) => (
-                    <option value={option}>{option}</option>
+            <Form.Select
+                aria-label="Default select example"
+                onChange={input.onChange}
+            >
+                {options.map((opt) => (
+                    <option value={opt} selected={opt === selectedOption}>{opt}</option>
                 ))}
             </Form.Select>
             {touched &&
@@ -61,8 +64,38 @@ const renderSelect = ({
 
 )
 
+const mapStateProps = (state) => {
+
+
+    if (state.assets.getAssetResponse) {
+        return {
+            initialValues: {
+                assetName: state.assets.getAssetResponse.assetName,
+                value: state.assets.getAssetResponse.value,
+                note: state.assets.getAssetResponse.note,
+                detailcertification: state.assets.getAssetResponse.detail.detailcertification,
+                detailsizeSoil: state.assets.getAssetResponse.detail.detailsizeSoil,
+                detailsizeBuilding: state.assets.getAssetResponse.detail.detailsizeBuilding,
+                detailaddress: state.assets.getAssetResponse.detail.detailaddress,
+                detailpaid: state.assets.getAssetResponse.detail.detailpaid
+            },
+        };
+    }
+
+
+};
+
+
+const option = ["Lunas", "Belum Lunas"]
 
 class FormBuildingComponent extends Component {
+
+    getDetailPaid() {
+        if (this.props.initialValues) {
+            return this.props.initialValues.detailpaid
+        }
+        return null
+    }
 
     render() {
         return (
@@ -133,10 +166,12 @@ class FormBuildingComponent extends Component {
                             name="detailpaid"
                             component={renderSelect}
                             options={
-                                ["lunas", "belum lunas"]
+                                option
                             }
                             title="Pelunasan"
-                            
+                            value={"value"}
+                            selectedOption={this.getDetailPaid()}
+
                         />
                     </Form.Group>
 
@@ -160,4 +195,4 @@ FormBuildingComponent = reduxForm({
     enableReinitialize: true,
 })(FormBuildingComponent);
 
-export default connect()(FormBuildingComponent);
+export default connect(mapStateProps, null)(FormBuildingComponent);

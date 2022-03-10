@@ -24,10 +24,7 @@ const mapStateToProps = (state) => {
 
 function TableAssetTenantComponent(props) {
 
-
-
     const columns = [
-
         {
             dataField: "assetName",
             text: "Nama harta",
@@ -38,7 +35,6 @@ function TableAssetTenantComponent(props) {
             text: "Kategori",
             sort: true,
         },
-
         {
             dataField: "link",
             text: "Action",
@@ -62,11 +58,11 @@ function TableAssetTenantComponent(props) {
                         <Button variant="outline-danger" className="mr-2" size="sm"
                             onClick={() => {
                                 props.dispatch(deleteAsset(row.id))
+                                this.disabled = true;
                             }}
                         >
                             Hapus
                         </Button>
-
                     </div>
                 );
             },
