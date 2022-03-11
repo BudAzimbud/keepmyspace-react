@@ -46,10 +46,6 @@ const ValidateFormAsset = (values) => {
         errors.detailnumbermachine = "Nomer Mesin harus di isi"
     }
 
-    if (!values.detailpaid || values.detailpaid === "") {
-        errors.detailpaid = "Silahkan pilih"
-    }
-
     return errors
 };
 

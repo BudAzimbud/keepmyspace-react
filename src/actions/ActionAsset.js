@@ -4,7 +4,7 @@ export const POST_CREATE_ASSET = 'POST_CREATE_ASSET'
 export const GET_ASSET = 'GET_ASSET'
 export const DELETE_ASSET = 'DELETE_ASSET'
 export const EDIT_ASSET = 'EDIT_ASSET'
-
+export const EMPTY_ASSET = 'EMPTY_ASSET'
 
 export const listAllAsset = (data) => {
     return dispatch => {
@@ -105,6 +105,7 @@ export const getAsset = (id) => {
 
 export const emptyAsset = () => {
     return dispatch => {
+
         dispatch({
             type: GET_ASSET,
             payload: {
@@ -114,9 +115,6 @@ export const emptyAsset = () => {
         })
     }
 }
-
-
-
 
 
 export const deleteAsset = (id) => {
@@ -152,9 +150,9 @@ export const deleteAsset = (id) => {
 
 
 
-export const editAsset = (id , data) => {
+export const editAsset = (id, data) => {
     return dispatch => {
-        httpRequest.put('assets/'+id, data, {
+        httpRequest.put('assets/' + id, data, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem('token'),
                 tenantid: '6228489b88ca3666f51c365a'

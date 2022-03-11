@@ -14,20 +14,15 @@ const mapStateToProps = (state) => {
 class AssetContainer extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(listAllAsset())
         this.props.dispatch(emptyAsset())
+        this.props.dispatch(listAllAsset())
     }
 
 
     componentDidUpdate() {
-        this.props.dispatch(emptyAsset())
 
-        if (this.props.deleteAssetResponse) {
-            this.props.dispatch(listAllAsset())
-        }
-        if (this.props.createAssetResponse) {
-            this.props.dispatch(listAllAsset())
-        }
+
+        this.props.dispatch(listAllAsset())
     }
 
     render() {

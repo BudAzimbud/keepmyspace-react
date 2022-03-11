@@ -32,10 +32,12 @@ const renderField = ({
 )
 
 
+
 const renderSelect = ({
     input,
     label,
     options,
+    selectedOption,
     readOnly,
     title,
     meta: { touched, error, warning },
@@ -47,9 +49,12 @@ const renderSelect = ({
             </h1>
         </Col>
         <Col md="12">
-            <Form.Select aria-label="Default select example" onChange={input.onChange}>
-                {options.map((option) => (
-                    <option value={option}>{option}</option>
+            <Form.Select
+                aria-label="Default select example"
+                onChange={input.onChange}
+            >
+                {options.map((opt) => (
+                    <option value={opt} selected={opt === selectedOption}>{opt}</option>
                 ))}
             </Form.Select>
             {touched &&
@@ -57,16 +62,45 @@ const renderSelect = ({
                     (warning && <p style={{ color: "brown" }}>{warning}</p>))}
         </Col>
     </Row>
-
 )
 
 
+const mapStateToProps = (state) => {
 
+    let detail = {}
+
+    if (state.assets.getAssetResponse) {
+        detail = {
+            detailbrand: state.assets.getAssetResponse.detail.detailbrand,
+            detailkindvehicle: state.assets.getAssetResponse.detail.detailkindvehicle,
+            detailnumberplat: state.assets.getAssetResponse.detail.detailnumberplat,
+            detailnumbermachine: state.assets.getAssetResponse.detail.detailnumbermachine
+        }
+    }
+
+
+    return {
+        initialValues: {
+            assetName: state.assets.getAssetResponse.assetName,
+            value: state.assets.getAssetResponse.value,
+            note: state.assets.getAssetResponse.note,
+            ...detail
+        },
+    }
+}
 
 
 
 class FormVehiceComponent extends Component {
 
+
+
+    getKindVehicle() {
+        if (this.props.initialValues) {
+            return this.props.initialValues.detailkindvehicle
+        }
+        return null
+    }
 
     render() {
         return (
@@ -106,6 +140,7 @@ class FormVehiceComponent extends Component {
                             component={renderSelect}
                             options={["Motor", "Mobil"]}
                             title={"Jenis Kendaraan"}
+                            selectedOption={this.getKindVehicle()}
                         />
                     </Form.Group>
 
@@ -134,15 +169,6 @@ class FormVehiceComponent extends Component {
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicEmail">
-                        <Field
-                            name="detailpaid"
-                            component={renderSelect}
-                            options={["lunas", "belum lunas"]}
-                            title={"Pembayaran"}
-                        />
-                    </Form.Group>
-
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >
                         {this.props.isLoading ?
                             <Spinner animation="border" role="status">
@@ -162,4 +188,4 @@ FormVehiceComponent = reduxForm({
     enableReinitialize: true,
 })(FormVehiceComponent);
 
-export default connect()(FormVehiceComponent);
+export default connect(mapStateToProps, null)(FormVehiceComponent);

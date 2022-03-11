@@ -32,70 +32,38 @@ const renderField = ({
 )
 
 
-const renderSelect = ({
-    input,
-    label,
-    options,
-    selectedOption,
-    readOnly,
-    title,
-    meta: { touched, error, warning },
-}) => (
-    <Row>
-        <Col md="12">
-            <h1 htmlFor="{input}" className="col-form-label">
-                {label}
-            </h1>
-        </Col>
-        <Col md="12">
-            <Form.Select
-                aria-label="Default select example"
-                onChange={input.onChange}
-            >
-                {options.map((opt) => (
-                    <option value={opt} selected={opt === selectedOption}>{opt}</option>
-                ))}
-            </Form.Select>
-            {touched &&
-                ((error && <p className="mb-0" style={{ color: "red" }}>{error}</p>) ||
-                    (warning && <p style={{ color: "brown" }}>{warning}</p>))}
-        </Col>
-    </Row>
-
-)
 
 const mapStateProps = (state) => {
 
+    let detail = {}
 
     if (state.assets.getAssetResponse) {
-        return {
-            initialValues: {
-                assetName: state.assets.getAssetResponse.assetName,
-                value: state.assets.getAssetResponse.value,
-                note: state.assets.getAssetResponse.note,
-                detailcertification: state.assets.getAssetResponse.detail.detailcertification,
-                detailsizeSoil: state.assets.getAssetResponse.detail.detailsizeSoil,
-                detailsizeBuilding: state.assets.getAssetResponse.detail.detailsizeBuilding,
-                detailaddress: state.assets.getAssetResponse.detail.detailaddress,
-                detailpaid: state.assets.getAssetResponse.detail.detailpaid
-            },
-        };
+        detail = {
+            detailcertification: state.assets.getAssetResponse.detail.detailcertification,
+            detailsizeSoil: state.assets.getAssetResponse.detail.detailsizeSoil,
+            detailsizeBuilding: state.assets.getAssetResponse.detail.detailsizeBuilding,
+            detailaddress: state.assets.getAssetResponse.detail.detailaddress,
+            detailpaid: state.assets.getAssetResponse.detail.detailpaid
+        }
     }
+
+
+    return {
+        initialValues: {
+            assetName: state.assets.getAssetResponse.assetName,
+            value: state.assets.getAssetResponse.value,
+            note: state.assets.getAssetResponse.note,
+            ...detail
+        },
+    };
 
 
 };
 
 
-const option = ["Lunas", "Belum Lunas"]
 
 class FormBuildingComponent extends Component {
 
-    getDetailPaid() {
-        if (this.props.initialValues) {
-            return this.props.initialValues.detailpaid
-        }
-        return null
-    }
 
     render() {
         return (
@@ -107,6 +75,7 @@ class FormBuildingComponent extends Component {
                             name="assetName"
                             component={renderField}
                             placeholder="Nama Harta..."
+                            label="Nama Harta"
                         />
                     </Form.Group>
 
@@ -116,6 +85,7 @@ class FormBuildingComponent extends Component {
                             name="value"
                             component={renderField}
                             placeholder="Harga.."
+                            label="Harga"
                         />
                     </Form.Group>
 
@@ -125,6 +95,7 @@ class FormBuildingComponent extends Component {
                             name="note"
                             component={renderField}
                             placeholder="Catatan..."
+                            label="Catatan"
                         />
                     </Form.Group>
 
@@ -133,6 +104,7 @@ class FormBuildingComponent extends Component {
                             name="detailcertification"
                             component={renderField}
                             placeholder="Nomor Sertifikat Tanah"
+                            label="Nomer Sertifikat Tanah"
                         />
                     </Form.Group>
 
@@ -141,6 +113,7 @@ class FormBuildingComponent extends Component {
                             name="detailsizeSoil"
                             component={renderField}
                             placeholder="Luas Tanah..."
+                            label="Luas tanah"
                         />
                     </Form.Group>
 
@@ -149,6 +122,7 @@ class FormBuildingComponent extends Component {
                             name="detailsizeBuilding"
                             component={renderField}
                             placeholder="Luas bangunan..."
+                            label="Luas Bangunan"
                         />
                     </Form.Group>
 
@@ -158,22 +132,11 @@ class FormBuildingComponent extends Component {
                             name="detailaddress"
                             component={renderField}
                             placeholder="Alamat..."
+                            label="Alamat"
                         />
                     </Form.Group>
 
-                    <Form.Group >
-                        <Field
-                            name="detailpaid"
-                            component={renderSelect}
-                            options={
-                                option
-                            }
-                            title="Pelunasan"
-                            value={"value"}
-                            selectedOption={this.getDetailPaid()}
 
-                        />
-                    </Form.Group>
 
 
                     <Button variant="primary" className='mt-4' type="submit" disabled={this.props.isLoading} >

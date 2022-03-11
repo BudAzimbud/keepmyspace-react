@@ -44,7 +44,7 @@ function EditAssetContainer(props) {
             "assetName": data.assetName,
             "value": parseInt(data.value),
             "note": data.note,
-            "category": "Bangunan",
+            "category": props.asset.category,
             detail
         }))
         console.log({
